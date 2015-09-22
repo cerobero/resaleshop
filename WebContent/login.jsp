@@ -53,13 +53,13 @@
 					    	<h3 class="panel-title">회원 로그인</h3>
 					 	</div>
 					  	<div class="panel-body">
-					    	<form accept-charset="UTF-8" role="form">
+					    	<form method="post" action="login?cmd=login" accept-charset="UTF-8" role="form">
 		                    <fieldset>
 					    	  	<div class="form-group">
-					    		    <input class="form-control" placeholder="아이디" name="userid" type="text">
+					    		    <input class="form-control" placeholder="아이디" name="id" type="text">
 					    		</div>
 					    		<div class="form-group">
-					    			<input class="form-control" placeholder="비밀번호" name="password" type="password" value="">
+					    			<input class="form-control" placeholder="비밀번호" name="pwd" type="password">
 					    		</div>
 					    		<div class="checkbox">
 					    	    	<label>

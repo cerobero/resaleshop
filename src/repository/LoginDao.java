@@ -14,21 +14,28 @@ import vo.LoginVo;
 public class LoginDao {
 
 	private LoginDao() {}
-
 	private static LoginDao instance = new LoginDao();
-
 	public static LoginDao getInstance() {
-		return instance;
-	}
+		return instance;}
+	
 	private Connection con;
-
-	public int isMember(String id, String pwd) throws ClassNotFoundException, SQLException {
+	
+	public void startConnection() throws ClassNotFoundException, SQLException{
 		Class.forName("com.mysql.jdbc.Driver");
-
-		if (con == null) {
+		
+		if(con==null){
 			String url = "jdbc:mysql://localhost:3306/resale_shop";
-			con = DriverManager.getConnection(url, "root", "hanbit");}
-			
+			con = DriverManager.getConnection(url,"root","hanbit");
+		}
+	}
+	public void closeConnection() throws SQLException{
+		if(con!=null){
+			con.close();
+			con = null;
+		}
+	}
+	
+	public int isMember(String id, String pwd) throws ClassNotFoundException, SQLException {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
@@ -61,12 +68,6 @@ public class LoginDao {
 	}
 	
 	public List<GoodsVo> itemStatus(String sid) throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-
-		if (con == null) {
-			String url = "jdbc:mysql://localhost:3306/resale_shop";
-			con = DriverManager.getConnection(url, "root", "hanbit");}
-			
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		List<GoodsVo> result = new ArrayList<>();
@@ -104,12 +105,6 @@ public class LoginDao {
 	}
 	
 	public int soldout(int anum) throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-
-		if (con == null) {
-			String url = "jdbc:mysql://localhost:3306/resale_shop";
-			con = DriverManager.getConnection(url, "root", "hanbit");}
-			
 		PreparedStatement pstmt = null;
 		int result = 0;
 		
@@ -117,9 +112,29 @@ public class LoginDao {
 		String sql = "update article set soldout=1 where article_no=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, anum);
-			System.out.println(anum);
 			result = pstmt.executeUpdate();
-			System.out.println("ss");
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		} finally {
+			try {
+				if (pstmt != null)
+					pstmt.close();
+				if (con != null)
+					con.close();
+					con=null;
+			} catch (SQLException se) {}
+		}return result;
+	}
+	
+	public int delete(int anum) throws ClassNotFoundException, SQLException {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		try {
+		String sql = "delete from article where article_no=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, anum);
+			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		} finally {

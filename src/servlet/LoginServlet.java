@@ -26,9 +26,6 @@ public class LoginServlet extends HttpServlet{
 		String cmd=request.getParameter("cmd");
 		LoginService service = LoginService.getInstance();
 		
-		System.out.println("test:"+cmd);
-		
-		String viewPath="";
 		if(cmd.equals("loginForm")){
 			response.sendRedirect("login.jsp");
 		}else if(cmd.equals("login")){
@@ -36,8 +33,9 @@ public class LoginServlet extends HttpServlet{
 		}else if(cmd.equals("logout")){
 			service.logout(request,response);
 		}else if(cmd.equals("soldout")){
-			System.out.println("test2");
 			service.soldout(request,response);
+		}else if(cmd.equals("del")){
+			service.delArticle(request,response);
 		}else if(cmd.equals("mypage")){
 			service.myPage(request,response);}
 		}catch(ClassNotFoundException | SQLException e) {

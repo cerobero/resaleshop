@@ -30,17 +30,7 @@
     <!-- jQuery -->
 <!--     <script src="resource/js/jquery.js"></script> -->
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
- 	<script type="text/javascript">
-		
-			$(function() {
-				$('#btn_soldout').click(function() {
-					alert("test2");
-					$('#cmd').val('soldout')
-// 					$("#cmd").attr('value', 'soldout');
-					$('form').submit();
-				})
-			})
-		</script>
+
     <!-- Bootstrap Core JavaScript -->
     <script src="resource/js/bootstrap.min.js"></script>
     
@@ -119,8 +109,8 @@
   <tr>
     <td class="tg-q64d" align="center">${article.articleNo}</td>
     <td class="tg-q64d" align="center">${article.title}</td>
-<%--     <td class="tg-q64d" align="center"><a href="login?cmd=read&articleNum=${article.articleNum}">${article.title}</a></td> --%>
-<%--     <td class="tg-q64d" align="center"><a href="read.jsp&articleNum=${article.articleNum}">${article.title}</a></td> --%>
+<%--     <td class="tg-q64d" align="center"><a href="login?cmd=read&articleNum=${article.articleNo}">${article.title}</a></td> --%>
+<%--     <td class="tg-q64d" align="center"><a href="read.jsp&articleNum=${article.articleNo}">${article.title}</a></td> --%>
     <td class="tg-cxkv" align="center">${article.price}</td>
     <td class="tg-cxkv" align="center"><fmt:formatDate value="${article.postingDate}" pattern="yyyy년 MM월 dd일 h:mm"/></td>
     <c:choose>
@@ -132,13 +122,10 @@
     </c:when>
     </c:choose>
 	<td>
-<!-- 	<form action="login" method="post"> -->
-<!-- 	<input type="hidden" name="cmd" id="cmd" value="ttt"> -->
-<%-- 	<input type="hidden" name="articleNum" value="${article.articleNo}"> --%>
-<!-- 	<button type="button" id="btn_soldout">판매완료</button> -->
 	<button type="button" onClick="location.href='login?cmd=soldout&articleNum=${article.articleNo}'">완료처리</button>
+	<button type="button" onClick="location.href='login?cmd=del&articleNum=${article.articleNo}'">삭제</button>
 <%--  <button type="button" onClick="location.href='login?cmd=mod&articleNum=${article.articleNo}'">수정</button> --%>
-<%-- 	<button type="button" onClick="location.href='login?cmd=del&articleNum=${article.articleNo}'">삭제</button> --%>
+
 <!-- 	</form> -->
 
 	</td>

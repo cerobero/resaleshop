@@ -28,8 +28,9 @@ public class LoginService {
 		String pwd=request.getParameter("pwd");
 
 		LoginDao dao=LoginDao.getInstance();
+		dao.startConnection();
 
-		int n=dao.isMember(id,pwd);
+		int n=dao.isMember(id, pwd);
 		
 		
 		if(n==1){
@@ -66,6 +67,7 @@ public class LoginService {
 		String sid = (String)session.getAttribute("id");
 		
 		LoginDao dao=LoginDao.getInstance();
+		dao.startConnection();
 
 		List<GoodsVo> articleList=dao.itemStatus(sid);
 		request.setAttribute("articleList", articleList);
@@ -80,10 +82,23 @@ public class LoginService {
 		int anum=Integer.parseInt(snum);
 		
 		LoginDao dao=LoginDao.getInstance();
+		dao.startConnection();
 
 		dao.soldout(anum);
 		LoginService.instance.myPage(request, response);
-		System.out.println("sv");
+	}
+	
+	public void delArticle(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException, ClassNotFoundException, SQLException {
+
+		String snum=request.getParameter("articleNum");
+		int anum=Integer.parseInt(snum);
+		
+		LoginDao dao=LoginDao.getInstance();
+		dao.startConnection();
+
+		dao.delete(anum);
+		LoginService.instance.myPage(request, response);
 	}
 	
 }

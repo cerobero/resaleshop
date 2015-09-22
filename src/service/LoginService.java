@@ -32,7 +32,6 @@ public class LoginService {
 
 		int n=dao.isMember(id, pwd);
 		
-		
 		if(n==1){
 			HttpSession session=request.getSession();
 			session.setAttribute("id", id);

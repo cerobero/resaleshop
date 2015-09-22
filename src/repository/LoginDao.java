@@ -28,42 +28,30 @@ public class LoginDao {
 			con = DriverManager.getConnection(url,"root","hanbit");
 		}
 	}
-	public void closeConnection() throws SQLException{
-		if(con!=null){
-			con.close();
-			con = null;
-		}
-	}
 	
 	public int isMember(String id, String pwd) throws ClassNotFoundException, SQLException {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		try {
+		try{
 		String sql = "select * from user where user_id=? and user_pw=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
 			pstmt.setString(2, pwd);
 			rs = pstmt.executeQuery();
 
-			if (rs.next()) {
-				return 1;
-			} else {
-				return 0;
-			}
-		} catch (SQLException e) {
+			if(rs.next()){
+				return 1;}
+			else{return 0;}
+		}catch(SQLException e){
 			System.out.println(e.getMessage());
 			return -1;
-		} finally {
-			try {
-				if (rs != null)
-					rs.close();
-				if (pstmt != null)
-					pstmt.close();
-				if (con != null)
-					con.close();
-					con=null;
-			} catch (SQLException se) {}
+		}finally {
+			try{
+				if(rs != null){rs.close();}
+				if(pstmt != null){pstmt.close();}
+				if(con != null){con.close();con=null;}
+			}catch(SQLException se){}
 		}
 	}
 	
@@ -72,7 +60,7 @@ public class LoginDao {
 		ResultSet rs = null;
 		List<GoodsVo> result = new ArrayList<>();
 		
-		try {
+		try{
 		String sql = "select article_no,title,price,posting_date,soldout from article where user_id=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, sid);
@@ -88,18 +76,14 @@ public class LoginDao {
 				
 				result.add(goods);
 			}
-		} catch (SQLException e) {
+		}catch(SQLException e){
 			System.out.println(e.getMessage());
-		} finally {
-			try {
-				if (rs != null)
-					rs.close();
-				if (pstmt != null)
-					pstmt.close();
-				if (con != null)
-					con.close();
-					con=null;
-			} catch (SQLException se) {}
+		}finally{
+			try{
+				if(rs != null){rs.close();}
+				if(pstmt != null){pstmt.close();}
+				if(con != null){con.close();con=null;}
+			}catch (SQLException se){}
 		}
 		return result;
 	}
@@ -108,21 +92,18 @@ public class LoginDao {
 		PreparedStatement pstmt = null;
 		int result = 0;
 		
-		try {
+		try{
 		String sql = "update article set soldout=1 where article_no=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, anum);
 			result = pstmt.executeUpdate();
-		} catch (SQLException e) {
+		}catch(SQLException e){
 			System.out.println(e.getMessage());
-		} finally {
-			try {
-				if (pstmt != null)
-					pstmt.close();
-				if (con != null)
-					con.close();
-					con=null;
-			} catch (SQLException se) {}
+		}finally {
+			try{
+				if(pstmt != null){pstmt.close();}
+				if(con != null){con.close();con=null;}
+			}catch(SQLException se){}
 		}return result;
 	}
 	
@@ -130,21 +111,18 @@ public class LoginDao {
 		PreparedStatement pstmt = null;
 		int result = 0;
 		
-		try {
+		try{
 		String sql = "delete from article where article_no=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, anum);
 			result = pstmt.executeUpdate();
-		} catch (SQLException e) {
+		}catch(SQLException e) {
 			System.out.println(e.getMessage());
-		} finally {
-			try {
-				if (pstmt != null)
-					pstmt.close();
-				if (con != null)
-					con.close();
-					con=null;
-			} catch (SQLException se) {}
+		}finally{
+			try{
+				if(pstmt != null){pstmt.close();}
+				if(con != null){con.close();con=null;}
+			}catch (SQLException se){}
 		}return result;
 	}
 }

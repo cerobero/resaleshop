@@ -63,7 +63,7 @@
     
 <c:if test="${empty sessionScope.id }">
 	<script type="text/javascript">
- 	alert("로그인 된 사용자만 볼 수 있어요");
+ 	alert("로그인 된 사용자만 볼 수 있습니다");
  	location.href="login?cmd=loginForm";
  	</script>
 </c:if>
@@ -91,19 +91,19 @@
             <table class="tg" style="undefined;table-layout: fixed; width: 700px">
 <colgroup>
 <col style="width: 70px">
-<col style="width: 280px">
+<col style="width: 320px">
 <col style="width: 80px">
-<col style="width: 180px">
+<col style="width: 200px">
 <col style="width: 100px">
-<col style="width: 100px">
+<col style="width: 110px">
 </colgroup>
   <tr>
     <th class="tg-3xho">글번호</th>
-    <th class="tg-3xho">제목</th>
+    <th class="tg-3xho">제&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;목</th>
     <th class="tg-3xho">판매가</th>
-    <th class="tg-3xho">등록일</th>
+    <th class="tg-3xho">등&nbsp;록&nbsp;일</th>
     <th class="tg-3xho">현재상태</th>
-    <th class="tg-3xho">변경</th>
+    <th class="tg-3xho">변&nbsp;경</th>
  </tr>
   <c:forEach var="article" items="${requestScope.articleList}">
   <tr>
@@ -111,8 +111,8 @@
     <td class="tg-q64d" align="center">${article.title}</td>
 <%--     <td class="tg-q64d" align="center"><a href="login?cmd=read&articleNum=${article.articleNo}">${article.title}</a></td> --%>
 <%--     <td class="tg-q64d" align="center"><a href="read.jsp&articleNum=${article.articleNo}">${article.title}</a></td> --%>
-    <td class="tg-cxkv" align="center">${article.price}</td>
-    <td class="tg-cxkv" align="center"><fmt:formatDate value="${article.postingDate}" pattern="yyyy년 MM월 dd일 h:mm"/></td>
+    <td class="tg-cxkv" align="center"><fmt:formatNumber value="${article.price}" pattern="#,###.##원"/></td>
+    <td class="tg-cxkv" align="center"><fmt:formatDate value="${article.postingDate}" pattern="yyyy년 M월 d일 h:mm"/></td>
     <c:choose>
     <c:when test="${article.soldout==1}">
 	<td align="center">판매완료</td>
@@ -122,8 +122,8 @@
     </c:when>
     </c:choose>
 	<td>
-	<button type="button" onClick="location.href='login?cmd=soldout&articleNum=${article.articleNo}'">완료처리</button>
-	<button type="button" onClick="location.href='login?cmd=del&articleNum=${article.articleNo}'">삭제</button>
+	<button type="button" style="height:25px;width:45px" onClick="location.href='login?cmd=soldout&articleNum=${article.articleNo}'">완료</button>
+	<button type="button" style="height:25px;width:45px" onClick="location.href='login?cmd=del&articleNum=${article.articleNo}'">삭제</button>
 <%--  <button type="button" onClick="location.href='login?cmd=mod&articleNum=${article.articleNo}'">수정</button> --%>
 
 <!-- 	</form> -->

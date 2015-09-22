@@ -34,7 +34,6 @@ public class LoginService {
 		
 		
 		if(n==1){
-			System.out.println("로그인성공");
 			HttpSession session=request.getSession();
 			session.setAttribute("id", id);
 			session.setAttribute("pwd", pwd);
@@ -46,7 +45,7 @@ public class LoginService {
 			request.getRequestDispatcher("err.jsp").forward(request, response);
 
 		}else{
-			String msg="내부적 오류발생!";
+			String msg="내부 오류발생!";
 			request.setAttribute("errMsg", msg);
 			request.getRequestDispatcher("err.jsp").forward(request, response);
 		}		

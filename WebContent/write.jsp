@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +11,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 
+<script type="text/javascript">
+function test(){
+	$('#content').val(document.getElementById("editor").innerHTML);
+	}
+$('#target').submit(function() {
+// 	$('#content').val($('#editor').text());
+	
+	alert(document.getElementById("editor").innerHTML);
+});
+</script>
     <title>중고(딩)나라</title>
 
     <!-- Bootstrap Core CSS -->
@@ -24,7 +37,7 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+	
     <!-- jQuery -->
     <script src="resource/js/jquery.js"></script>
 
@@ -117,13 +130,18 @@
 </head>
 
 <body>
-	
+
 	<%@ include file="nav.jspf" %>
 
     <br>
-    
+    <c:if test="${empty sessionScope.id }">
+	<script type="text/javascript">
+ 		alert("로그인 된 사용자만 볼 수 있습니다");
+ 		location.href="login?cmd=loginForm";
+ 	</script>
+	</c:if>
 	<div class="container">
-	<form class="form-group" action="" method="POST">
+	<form class="form-group" action="write" method="POST" enctype="multipart/form-data">
 	  <div class="hero-unit">
 		<div id="legend">
 		  <h1 class="page-header">글쓰기</h1>
@@ -141,35 +159,37 @@
 		<div class="control-group">
 			<div class="controls">
 				<label class="control-label" for="title">제목</label>
-				<input type="text" id="title" class="input-xlarge">
+				<input type="text" id="title" class="input-xlarge" name ="title">
 			</div>
 		</div>
 		
 		<div class="control-group">
 			<div class="controls">
-				<label class="control-label" for="item">상품명</label>
-				<input type="text" id="item" class="input-large">
+<!-- 				<label class="control-label" for="item">상품명</label> -->
+<!-- 				<input type="text" id="item" class="input-large"> -->
 				
 				<label class="control-label" for="price" style="width: 60px;">가격</label>
-				<input type="text" id="price" class="input-large">
+				<input type="text" id="price" class="input-large" name="price">
 				
 				<label class="control-label" for="photo">사진등록</label>
-				<input type="file" id="item" class="btn btn-default btn-file">
+				<input type="file" id="item" class="btn btn-default btn-file" name="photo">
 			</div>
 		</div>
 		
 		<div class="control-group">
 			<div class="controls">
 				<label class="control-label">카테고리</label>
-					<input type="radio" value="ct1" name="categoryRadios" checked>&nbsp;카테고리1&nbsp;
-					<input type="radio" value="ct2" name="categoryRadios">&nbsp;카테고리2&nbsp;
-					<input type="radio" value="ct3" name="categoryRadios">&nbsp;카테고리3&nbsp;
+					<input type="radio" value="1" name="categoryId" checked>&nbsp;It기기&nbsp;
+					<input type="radio" value="2" name="categoryId">&nbsp;가전제품&nbsp;
+					<input type="radio" value="3" name="categoryId">&nbsp;중고차&nbsp;
+					<input type="radio" value="4" name="categoryId">&nbsp;취미&nbsp;
+					<input type="radio" value="5" name="categoryId">&nbsp;의복&nbsp;
 			</div>
 			
 			<div class="controls">
 				<label class="control-label">프리미엄</label>
-					<input type="radio" value="true" name="premiumeRadios">&nbsp;사용&nbsp;
-					<input type="radio" value="false" name="premiumeRadios" checked>&nbsp;사용안함&nbsp;
+					<input type="radio" value="1" name="premiume">&nbsp;사용&nbsp;
+					<input type="radio" value="0" name="premiume" checked>&nbsp;사용안함&nbsp;
 			</div>
 		</div>
 		
@@ -227,7 +247,9 @@
 	    <div class="control-group text-center">
 	      <!-- Button -->
 	      <div class="controls">
-	        <button class="btn btn-success">쓰기</button>
+	      <input type="hidden" id="content" name="content">
+	      <input type="hidden" name="type" value="write">
+	        <button class="btn btn-success" type="submit" id="target" onclick="test()">쓰기</button>
 	        <button class="btn btn-success">취소</button>
 	      </div>
 	    </div>

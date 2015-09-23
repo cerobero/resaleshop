@@ -58,7 +58,7 @@
  		location.href="login?cmd=loginForm";
  	</script>
 	</c:if>
-
+	<br><br>
     <!-- Page Content -->
     <div class="container">
 
@@ -76,29 +76,29 @@
         <div class="row">
         <div class="col-md-12 portfolio-item">
             
-	<table class="tg" style="undefined;table-layout: fixed; width: 700px">
+	<table class="tg" style="undefined;table-layout: auto;">
 	<colgroup>
-		<col style="width: 70px">
-		<col style="width: 320px">
 		<col style="width: 80px">
-		<col style="width: 200px">
+		<col style="width: 360px">
 		<col style="width: 100px">
-		<col style="width: 110px">
+		<col style="width: 180px">
+		<col style="width: 90px">
+		<col style="width: 120px">
 	</colgroup>
   	<tr>
     	<th class="tg-3xho">글번호</th>
-    	<th class="tg-3xho">제&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;목</th>
-    	<th class="tg-3xho">판매가</th>
-    	<th class="tg-3xho">등&nbsp;록&nbsp;일</th>
+    	<th class="tg-3xho">제 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 목</th>
+    	<th class="tg-3xho">판 매 가</th>
+    	<th class="tg-3xho">등 록 일</th>
     	<th class="tg-3xho">현재상태</th>
-    	<th class="tg-3xho">변&nbsp;경</th>
+    	<th class="tg-3xho">변 &nbsp; &nbsp; 경</th>
  	</tr>
   	<c:forEach var="article" items="${requestScope.articleList}">
   	<tr>
-    	<td class="tg-q64d" align="center">${article.articleNo}</td>
+    	<td align="center">${article.articleNo}</td>
     	<td class="tg-q64d" align="center">${article.title}</td>
-<%--    <td class="tg-q64d" align="center"><a href="login?cmd=read&articleNum=${article.articleNo}">${article.title}</a></td> --%>
-<%--    <td class="tg-q64d" align="center"><a href="read.jsp&articleNum=${article.articleNo}">${article.title}</a></td> --%>
+<%--  <td class="tg-q64d" align="center"><a href="login?cmd=read&articleNum=${article.articleNo}">${article.title}</a></td> --%>
+<%--  <td class="tg-q64d" align="center"><a href="read.jsp&articleNum=${article.articleNo}">${article.title}</a></td> --%>
     	<td class="tg-cxkv" align="center"><fmt:formatNumber value="${article.price}" pattern="#,###.##원"/></td>
     	<td class="tg-cxkv" align="center"><fmt:formatDate value="${article.postingDate}" pattern="yyyy년 M월 d일 h:mm"/></td>
     <c:choose>
@@ -110,16 +110,16 @@
     </c:when>
     </c:choose>
 	<td>
-		<button type="button" style="height:25px;width:45px" onClick="location.href='login?cmd=soldout&articleNum=${article.articleNo}'">완료</button>
-		<button type="button" style="height:25px;width:45px" onClick="location.href='login?cmd=del&articleNum=${article.articleNo}'">삭제</button>
-<%--    <button type="button" onClick="location.href='login?cmd=mod&articleNum=${article.articleNo}'">수정</button> --%>
+		<button type="button" onClick="location.href='login?cmd=soldout&articleNum=${article.articleNo}'">완료</button>
+		<button type="button" onClick="location.href='login?cmd=del&articleNum=${article.articleNo}'">삭제</button>
+<%--  <button type="button" onClick="location.href='login?cmd=mod&articleNum=${article.articleNo}'">수정</button> --%>
 	</td>
   </tr>
   </c:forEach>
 	</table>
 	  </div>
         <!-- /.row -->
-        <br><br><br><br><br><br><br>
+        <br><br><br><br><br><br>
         <!-- Pagination -->
         <div class="row text-center">
             <div class="col-lg-12">

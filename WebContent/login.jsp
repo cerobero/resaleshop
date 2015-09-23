@@ -61,11 +61,6 @@
 					    		<div class="form-group">
 					    			<input class="form-control" placeholder="비밀번호" name="pwd" type="password">
 					    		</div>
-					    		<div class="checkbox">
-					    	    	<label>
-					    	    		<input name="remember" type="checkbox" value="Remember Me"> 로그인 상태 유지
-					    	    	</label>
-					    	    </div>
 					    		<input class="btn btn-lg btn-success btn-block" type="submit" value="로그인">
 					    	</fieldset>
 					      	</form>
@@ -81,7 +76,7 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
+                    <p>Copyright &copy; 왼쪽팀 2차프로젝트 2015</p>
                 </div>
             </div>
             <!-- /.row -->

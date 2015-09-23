@@ -3,7 +3,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,7 +29,6 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="resource/js/bootstrap.min.js"></script>
-
 </head>
 
 <body>
@@ -41,61 +39,52 @@
     
     <!--  Register form -->
     <div class="container">
-	    <form class="form-horizontal" action='' method="POST">
+	    <form class="form-horizontal" action="register" method="POST" name="submitForm">
 		  <fieldset>
 		    <div id="legend">
 		      <h1 class="page-header">회원가입</h1>
 		    </div>
 		    <div class="control-group">
 		      <!-- userid -->
-		      <label class="control-label"  for="userid">아이디</label>
+		      <label class="control-label"  for="userId">아이디</label>
 		      <div class="controls">
-		        <input type="text" id="userid" name="userid" placeholder="" class="input-xlarge">
+		        <input type="text" id="userId" name="userId" placeholder="" class="input-xlarge" pattern="^[A-Za-z]{1}[A-Za-z0-9]{3,11}$" title="띄어쓰기 없이 영문과 숫자를 혼합하여 4~12자를 사용할 수 있습니다." required>
 		        <p class="help-block">띄어쓰기 없이 영문과 숫자를 혼합하여 4~12자를 사용할 수 있습니다.</p>
 		      </div>
 		    </div>
 		 
 		    <div class="control-group">
 		      <!-- Password-->
-		      <label class="control-label" for="password">비밀번호</label>
+		      <label class="control-label" for="userPw">비밀번호</label>
 		      <div class="controls">
-		        <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
+		        <input type="password" id="userPw" name="userPw" placeholder="" class="input-xlarge" pattern="^[A-Za-z0-9]{4,20}$" title="최소한 4자 이상을 사용해 주세요." required>
 		        <p class="help-block">최소한 4자 이상을 사용해 주세요.</p>
 		      </div>
 		    </div>
 		 
 		    <div class="control-group">
-		      <!-- Password_confirm -->
-		      <label class="control-label"  for="password_confirm">비밀번호 확인</label>
-		      <div class="controls">
-		        <input type="password" id="password_confirm" name="password_confirm" placeholder="" class="input-xlarge">
-		        <p class="help-block">비밀번호를 다시 입력해주세요.</p>
-		      </div>
-		    </div>
-		 
-		    <div class="control-group">
 		      <!-- Username -->
-		      <label class="control-label" for="username">이름</label>
+		      <label class="control-label" for="userName">이름</label>
 		      <div class="controls">
-		        <input type="text" id="username" name="username" placeholder="" class="input-xlarge">
+		        <input type="text" id="userName" name="userName" placeholder="" class="input-xlarge" pattern="^[ㄱ-ㅎㅏ-ㅣ가-힣]{3,4}$" title="이름을 입력해주세요." required>
 		        <p class="help-block">이름을 입력해주세요.</p>
 		      </div>
 		    </div>
 		 
 		    <div class="control-group">
 		      <!-- Userphone -->
-		      <label class="control-label" for="userphone">휴대폰 번호</label>
+		      <label class="control-label" for="userPhone">휴대폰 번호</label>
 		      <div class="controls">
-		        <input type="text" id="userphone" name="userphone" placeholder="" class="input-xlarge">
+		        <input type="text" id="userPhone" name="userPhone" placeholder="" class="input-xlarge" pattern="^01(?:0|1[6-9])\-(?:\d{3}|\d{4})\-\d{4}$" title="휴대폰 번호를 입력해주세요." required>
 		        <p class="help-block">휴대폰 번호를 입력해주세요.</p>
 		      </div>
 		    </div>
 		 
 		    <div class="control-group">
 		      <!-- Username -->
-		      <label class="control-label" for="useremail">이메일</label>
+		      <label class="control-label" for="userEmail">이메일</label>
 		      <div class="controls">
-		        <input type="text" id="useremail" name="useremail" placeholder="" class="input-xlarge">
+		        <input type="text" id="userEmail" name="userEmail" placeholder="" class="input-xlarge" pattern="^[a-z0-9_+.-]+@([a-z0-9-]+\.)+[a-z0-9]{2,4}$" title="이메일을 입력해주세요." required>
 		        <p class="help-block">이메일을 입력해주세요.</p>
 		      </div>
 		    </div>
@@ -105,7 +94,7 @@
 		    <div class="control-group">
 		      <!-- Button -->
 		      <div class="controls">
-		        <button class="btn btn-success">회원가입</button>
+		        <button type="submit" class="btn btn-success">회원가입</button>
 		      </div>
 		    </div>
 		  </fieldset>

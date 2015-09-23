@@ -34,6 +34,9 @@
 			        	<a href="register.jsp">회원가입</a>
 			        </li>
 			        <li>
+			        	<a href="write.jsp">판매등록</a>
+			        </li>
+			        <li>
 			        	<a href="login?cmd=mypage">마이페이지</a>
 			        </li>
 		    	</ul>

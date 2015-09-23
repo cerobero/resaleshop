@@ -19,16 +19,8 @@
     <!-- Custom CSS -->
     <link href="resource/css/3-col-portfolio.css" rel="stylesheet">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
     <!-- jQuery -->
     <script src="resource/js/jquery.js"></script>
-	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="resource/js/bootstrap.min.js"></script>
@@ -36,16 +28,17 @@
     <style>
     	h3
     	{margin-top: 0px;}
+    	
     	.nopadding
     	{padding-left: 0px;}
     	
     <style type="text/css">
-	.tg  {border-collapse:collapse;border-spacing:0;border-color:#aaa;}
-	.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aaa;color:#333;background-color:#fff;}
-	.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aaa;color:#fff;background-color:#f38630;}
-	.tg .tg-cxkv{background-color:#ffffff}
-	.tg .tg-3xho{font-weight:bold;background-color:#ffc702;color:#000000;text-align:center}
-	.tg .tg-q64d{background-color:#ffffff;color:#333333}
+	  	.tg  {border-collapse:collapse;border-spacing:0;border-color:#aaa;}
+	  	.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aaa;color:#333;background-color:#fff;}
+		.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aaa;color:#fff;background-color:#f38630;}
+		.tg .tg-cxkv{background-color:#ffffff}
+		.tg .tg-3xho{font-weight:bold;background-color:#ffc702;color:#000000;text-align:center}
+		.tg .tg-q64d{background-color:#ffffff;color:#333333}
     </style>
 </head>
 
@@ -59,6 +52,7 @@
  	</script>
 	</c:if>
 	<br><br>
+	
     <!-- Page Content -->
     <div class="container">
 
@@ -77,45 +71,45 @@
         <div class="col-md-12 portfolio-item">
             
 	<table class="tg" style="undefined;table-layout: auto;">
-	<colgroup>
-		<col style="width: 80px">
-		<col style="width: 360px">
-		<col style="width: 100px">
-		<col style="width: 180px">
-		<col style="width: 90px">
-		<col style="width: 120px">
-	</colgroup>
-  	<tr>
-    	<th class="tg-3xho">글번호</th>
-    	<th class="tg-3xho">제 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 목</th>
-    	<th class="tg-3xho">판 매 가</th>
-    	<th class="tg-3xho">등 록 일</th>
-    	<th class="tg-3xho">현재상태</th>
-    	<th class="tg-3xho">변 &nbsp; &nbsp; 경</th>
- 	</tr>
-  	<c:forEach var="article" items="${requestScope.articleList}">
-  	<tr>
-    	<td align="center">${article.articleNo}</td>
-    	<td class="tg-q64d" align="center">${article.title}</td>
-<%--  <td class="tg-q64d" align="center"><a href="login?cmd=read&articleNum=${article.articleNo}">${article.title}</a></td> --%>
-<%--  <td class="tg-q64d" align="center"><a href="read.jsp&articleNum=${article.articleNo}">${article.title}</a></td> --%>
-    	<td class="tg-cxkv" align="center"><fmt:formatNumber value="${article.price}" pattern="#,###.##원"/></td>
-    	<td class="tg-cxkv" align="center"><fmt:formatDate value="${article.postingDate}" pattern="yyyy년 M월 d일 h:mm"/></td>
+		<colgroup>
+			<col style="width: 80px">
+			<col style="width: 400px">
+			<col style="width: 120px">
+			<col style="width: 180px">
+			<col style="width: 90px">
+			<col style="width: 140px">
+		</colgroup>
+  		<tr height="60">
+    		<th class="tg-3xho">글번호</th>
+    		<th class="tg-3xho">제 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 목</th>
+    		<th class="tg-3xho">판 매 가</th>
+    		<th class="tg-3xho">등 록 일</th>
+    		<th class="tg-3xho">현재상태</th>
+    		<th class="tg-3xho">변 &nbsp; &nbsp; 경</th>
+ 		</tr>
+		<c:forEach var="article" items="${requestScope.articleList}">
+ 		<tr>
+    		<td class="tg-q64d" height="60" align="center">${article.articleNo}</td>
+    		<td class="tg-q64d" height="60"align="center">${article.title}</td>
+<%--  <td class="tg-q64d" height="60" align="center"><a href="login?cmd=read&articleNum=${article.articleNo}">${article.title}</a></td> --%>
+<%--  <td class="tg-q64d" height="60" align="center"><a href="read.jsp&articleNum=${article.articleNo}">${article.title}</a></td> --%>
+    		<td class="tg-cxkv" height="60" align="center"><fmt:formatNumber value="${article.price}" pattern="#,###.##원"/></td>
+    		<td class="tg-cxkv" height="60" align="center"><fmt:formatDate value="${article.postingDate}" pattern="yyyy년 M월 d일 h:mm"/></td>
     <c:choose>
-    <c:when test="${article.soldout==1}">
-		<td align="center">판매완료</td>
-    </c:when>
-    <c:when test="${article.soldout==0}">
-		<td align="center">판매중</td>
-    </c:when>
+    	<c:when test="${article.soldout==1}">
+			<td align="center">판매완료</td>
+    	</c:when>
+    	<c:when test="${article.soldout==0}">
+			<td align="center">판매중</td>
+    	</c:when>
     </c:choose>
-	<td>
-		<button type="button" onClick="location.href='login?cmd=soldout&articleNum=${article.articleNo}'">완료</button>
-		<button type="button" onClick="location.href='login?cmd=del&articleNum=${article.articleNo}'">삭제</button>
+			<td align="center">
+				<button type="button" onClick="location.href='login?cmd=soldout&articleNum=${article.articleNo}'">완료</button>
+				<button type="button" onClick="location.href='login?cmd=del&articleNum=${article.articleNo}'">삭제</button>
 <%--  <button type="button" onClick="location.href='login?cmd=mod&articleNum=${article.articleNo}'">수정</button> --%>
-	</td>
-  </tr>
-  </c:forEach>
+			</td>
+  		</tr>
+  		</c:forEach>
 	</table>
 	  </div>
         <!-- /.row -->

@@ -76,7 +76,7 @@ public class LoginService {
 	public void soldout(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException, ClassNotFoundException, SQLException {
 
-		String snum=request.getParameter("articleNum");
+		String snum=request.getParameter("articleNo");
 		int anum=Integer.parseInt(snum);
 		
 		LoginDao dao=LoginDao.getInstance();
@@ -89,7 +89,7 @@ public class LoginService {
 	public void delArticle(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException, ClassNotFoundException, SQLException {
 
-		String snum=request.getParameter("articleNum");
+		String snum=request.getParameter("articleNo");
 		int anum=Integer.parseInt(snum);
 		
 		LoginDao dao=LoginDao.getInstance();

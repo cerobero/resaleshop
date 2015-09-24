@@ -26,7 +26,7 @@
 
 <body>
 	<%@ include file="nav.jspf" %>
-    <br>
+    <br><br><br>
     <!--  Register form -->
     <div class="container">
 		  <fieldset>

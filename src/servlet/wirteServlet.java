@@ -25,7 +25,8 @@ public class wirteServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		MultipartRequest mr = new MultipartRequest(request, "c:/test", 1024 * 1024 * 5, "UTF-8",
+		String forderPath=request.getServletContext().getRealPath("/upload");
+		MultipartRequest mr = new MultipartRequest(request, forderPath, 1024 * 1024 * 5, "UTF-8",
 				new DefaultFileRenamePolicy());
 		String type = mr.getParameter("type");
 		writeService writeservice = new writeService();

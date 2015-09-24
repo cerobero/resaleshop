@@ -18,7 +18,7 @@ public class writeService {
 
 	public int write(MultipartRequest m_request, HttpSession session) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
-		String forderPath = "c:/test/";
+		//String forderPath = "c:/test/";
 		int result = 0;
 		String userId = (String) session.getAttribute("id");
 		System.out.println(userId);

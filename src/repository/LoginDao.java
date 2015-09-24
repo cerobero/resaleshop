@@ -88,7 +88,26 @@ public class LoginDao {
 		return result;
 	}
 	
-	public int soldout(int anum) throws ClassNotFoundException, SQLException {
+	public int count(int anum) throws ClassNotFoundException, SQLException {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		try{
+		String sql = "select count(*) from comment where article_no=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, anum);
+			result = pstmt.executeUpdate();
+		}catch(SQLException e){
+			System.out.println(e.getMessage());
+		}finally {
+			try{
+				if(pstmt != null){pstmt.close();}
+				if(con != null){con.close();con=null;}
+			}catch(SQLException se){}
+		}return result;
+	}
+	
+	public int sold(int anum) throws ClassNotFoundException, SQLException {
 		PreparedStatement pstmt = null;
 		int result = 0;
 		

@@ -73,6 +73,21 @@ public class LoginService {
 		request.getRequestDispatcher("mypage.jsp").forward(request, response);
 	}
 	
+	public void countComments(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException, ClassNotFoundException, SQLException {
+
+		String snum=request.getParameter("articleNo");
+		int anum=Integer.parseInt(snum);
+		
+		LoginDao dao=LoginDao.getInstance();
+		dao.startConnection();
+
+		int countc=dao.count(anum);
+		request.setAttribute("countc", countc);
+		request.getRequestDispatcher("mypage.jsp").forward(request, response);
+	}
+	
+	
 	public void soldout(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException, ClassNotFoundException, SQLException {
 
@@ -82,7 +97,7 @@ public class LoginService {
 		LoginDao dao=LoginDao.getInstance();
 		dao.startConnection();
 
-		dao.soldout(anum);
+		dao.sold(anum);
 		LoginService.instance.myPage(request, response);
 	}
 	

@@ -74,14 +74,16 @@
 		<colgroup>
 			<col style="width: 80px">
 			<col style="width: 400px">
+			<col style="width: 80px">
 			<col style="width: 120px">
 			<col style="width: 180px">
 			<col style="width: 100px">
-			<col style="width: 230px">
+			<col style="width: 100px">
 		</colgroup>
   		<tr height="60">
     		<th class="tg-3xho">글번호</th>
     		<th class="tg-3xho">제 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 목</th>
+    		<th class="tg-3xho">댓 글</th>
     		<th class="tg-3xho">판 매 가</th>
     		<th class="tg-3xho">등 록 일</th>
     		<th class="tg-3xho">현재상태</th>
@@ -91,9 +93,12 @@
  		<tr>
     		<td class="tg-q64d" height="60" align="center">${article.articleNo}</td>
 			<td class="tg-q64d" height="60" align="center"><a href="itemInfo?type=read&articleNo=${article.articleNo}">${article.title}</a></td>
-<%--  <td class="tg-q64d" height="60" align="center"><a href="read.jsp&articleNo=${article.articleNo}">${article.title}</a></td> --%>
+<%-- 			<td class="tg-q64d" height="60" align="center"><a href="read.jsp&articleNo=${article.articleNo}">${article.title}</a></td> --%>
+<%-- 	 		<jsp:include page="login?cmd=count" flush="false"><jsp:param value="${article.articleNo}" name="articleNo"/></jsp:include> --%>
+<%-- 			<td class="tg-q64d" height="60" align="center">${countc}</td> --%>
+			<td></td>
     		<td class="tg-cxkv" height="60" align="center"><fmt:formatNumber value="${article.price}" pattern="#,###.##원"/></td>
-    		<td class="tg-cxkv" height="60" align="center"><fmt:formatDate value="${article.postingDate}" pattern="yyyy년 M월 d일 h:mm"/></td>
+    		<td class="tg-cxkv" height="60" align="center"><fmt:formatDate value="${article.postingDate}" pattern="yyyy년 M월 d일 H:mm"/></td>
     <c:choose>
     	<c:when test="${article.soldout==1}">
 			<td align="center">판매완료</td>
@@ -103,8 +108,8 @@
     	</c:when>
     </c:choose>
 			<td align="center">
-				<button type="button" class="btn btn-default" onClick="location.href='login?cmd=soldout&articleNo=${article.articleNo}'">완료</button>
-				<button type="button" class="btn btn-default" onClick="location.href='itemInfo?cmd=mod&articleNo=${article.articleNo}'">수정</button>
+				<button type="button"  class="btn btn-default" onClick="location.href='login?cmd=soldout&articleNo=${article.articleNo}'">완료</button><br>
+				<button type="button" class="btn btn-default" onClick="location.href='itemInfo?cmd=mod&articleNo=${article.articleNo}'">수정</button><br>
 				<button type="button" class="btn btn-default" onClick="location.href='login?cmd=del&articleNo=${article.articleNo}'">삭제</button>
 			</td>
   		</tr>

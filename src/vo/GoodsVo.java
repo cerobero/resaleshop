@@ -5,7 +5,7 @@ import java.util.Date;
 public class GoodsVo {
 	private int articleNo;
 	private String title;
-	private int commentNoNo;
+	private int commentNo;
 	private int price;
 	private Date postingDate;
 	private int soldout;
@@ -13,11 +13,11 @@ public class GoodsVo {
 	public GoodsVo() {
 	}
 
-	public GoodsVo(int articleNo, String title, int commentNoNo, int price, Date postingDate, int soldout) {
+	public GoodsVo(int articleNo, String title, int commentNo, int price, Date postingDate, int soldout) {
 		super();
 		this.articleNo = articleNo;
 		this.title = title;
-		this.commentNoNo = commentNoNo;
+		this.commentNo = commentNo;
 		this.price = price;
 		this.postingDate = postingDate;
 		this.soldout = soldout;
@@ -40,11 +40,11 @@ public class GoodsVo {
 	}
 
 	public int getCommentNoNo() {
-		return commentNoNo;
+		return commentNo;
 	}
 
 	public void setCommentNoNo(int commentNoNo) {
-		this.commentNoNo = commentNoNo;
+		this.commentNo = commentNoNo;
 	}
 
 	public int getPrice() {

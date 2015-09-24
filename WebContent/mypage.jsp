@@ -108,7 +108,7 @@
     	</c:when>
     </c:choose>
 			<td align="center">
-				<button type="button"  class="btn btn-default" onClick="location.href='login?cmd=soldout&articleNo=${article.articleNo}'">완료</button><br>
+				<button type="button" class="btn btn-default" onClick="location.href='login?cmd=soldout&articleNo=${article.articleNo}'">완료</button><br>
 				<button type="button" class="btn btn-default" onClick="location.href='itemInfo?cmd=mod&articleNo=${article.articleNo}'">수정</button><br>
 				<button type="button" class="btn btn-default" onClick="location.href='login?cmd=del&articleNo=${article.articleNo}'">삭제</button>
 			</td>

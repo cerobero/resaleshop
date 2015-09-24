@@ -20,7 +20,7 @@ public class MainServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		String type = request.getParameter("type");
+		String type = request.getParameter("index");
 		MainMenuService service=MainMenuService.getInstance();
 		String viewPath=null;
 		

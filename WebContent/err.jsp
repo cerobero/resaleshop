@@ -5,7 +5,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-${errMsg}<br/>
-<a href="index.jsp">메인 페이지로 이동</a>
+	<script type="text/javascript">
+ 		alert("${errMsg}");
+ 		location.href="login?cmd=loginForm";
+ 	</script>
 </body>
 </html>

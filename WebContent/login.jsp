@@ -3,7 +3,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,27 +17,16 @@
     <!-- Custom CSS -->
     <link href="resource/css/3-col-portfolio.css" rel="stylesheet">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
     <!-- jQuery -->
     <script src="resource/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="resource/js/bootstrap.min.js"></script>
-
 </head>
 
 <body>
-	
 	<%@ include file="nav.jspf" %>
-
-    <br>
-    
+    <br><br><br>
     <!--  Register form -->
     <div class="container">
 		  <fieldset>
@@ -61,11 +49,6 @@
 					    		<div class="form-group">
 					    			<input class="form-control" placeholder="비밀번호" name="pwd" type="password">
 					    		</div>
-					    		<div class="checkbox">
-					    	    	<label>
-					    	    		<input name="remember" type="checkbox" value="Remember Me"> 로그인 상태 유지
-					    	    	</label>
-					    	    </div>
 					    		<input class="btn btn-lg btn-success btn-block" type="submit" value="로그인">
 					    	</fieldset>
 					      	</form>
@@ -76,12 +59,11 @@
 		  </fieldset>
 
         <hr>
-
         <!-- Footer -->
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
+                    <p>Copyright &copy; 왼쪽팀 2차프로젝트 2015</p>
                 </div>
             </div>
             <!-- /.row -->
@@ -89,7 +71,5 @@
 
     </div>
     <!-- /.container -->
-
 </body>
-
 </html>

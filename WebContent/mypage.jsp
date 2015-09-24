@@ -76,8 +76,8 @@
 			<col style="width: 400px">
 			<col style="width: 120px">
 			<col style="width: 180px">
-			<col style="width: 90px">
-			<col style="width: 200px">
+			<col style="width: 100px">
+			<col style="width: 230px">
 		</colgroup>
   		<tr height="60">
     		<th class="tg-3xho">글번호</th>
@@ -103,9 +103,9 @@
     	</c:when>
     </c:choose>
 			<td align="center">
-				<button type="button" onClick="location.href='login?cmd=soldout&articleNo=${article.articleNo}'">완료</button>
-				<button type="button" onClick="location.href='itemInfo?cmd=mod&articleNo=${article.articleNo}'">수정</button>
-				<button type="button" onClick="location.href='login?cmd=del&articleNo=${article.articleNo}'">삭제</button>
+				<button type="button" class="btn btn-default" onClick="location.href='login?cmd=soldout&articleNo=${article.articleNo}'">완료</button>
+				<button type="button" class="btn btn-default" onClick="location.href='itemInfo?cmd=mod&articleNo=${article.articleNo}'">수정</button>
+				<button type="button" class="btn btn-default" onClick="location.href='login?cmd=del&articleNo=${article.articleNo}'">삭제</button>
 			</td>
   		</tr>
   		</c:forEach>

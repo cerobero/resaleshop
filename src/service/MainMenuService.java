@@ -22,7 +22,7 @@ public class MainMenuService {
 	public static final int COUNT_PER_PAGE = 8;
 	//  신상품 페이지의 총 페이지수,시작,끝,현재요청 페이지
 	public ArticlePage getNewArticlePage(HttpServletRequest request) throws ClassNotFoundException, SQLException {
-		String pageStr = request.getParameter("page");
+		String pageStr = request.getParameter("new_page");
 		int requestPage = 1;
 		if (pageStr != null && pageStr.length() > 0) {
 			requestPage = Integer.parseInt(pageStr);
@@ -60,9 +60,9 @@ public class MainMenuService {
 		return new ArticlePage(articleList, requestPage, totalPageCount, startPage, endPage);
 	}
 	
-	//  많이 팔린 상품 페이지의 총 페이지수,시작,끝,현재요청 페이지
+	//  조회수가 많은 상품 페이지의 총 페이지수,시작,끝,현재요청 페이지
 	public ArticlePage getHotArticlePage(HttpServletRequest request) throws ClassNotFoundException, SQLException {
-		String pageStr = request.getParameter("page");
+		String pageStr = request.getParameter("hot_page");
 		int requestPage = 1;
 		if (pageStr != null && pageStr.length() > 0) {
 			requestPage = Integer.parseInt(pageStr);
@@ -102,7 +102,7 @@ public class MainMenuService {
 	
 	//  프리미엄 상품 페이지의 총 페이지수,시작,끝,현재요청 페이지
 	public ArticlePage getPremiumArticlePage(HttpServletRequest request) throws ClassNotFoundException, SQLException {
-		String pageStr = request.getParameter("page");
+		String pageStr = request.getParameter("premium_page");
 		int requestPage = 1;
 		if (pageStr != null && pageStr.length() > 0) {
 			requestPage = Integer.parseInt(pageStr);

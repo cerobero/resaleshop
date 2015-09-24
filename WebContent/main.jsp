@@ -1,12 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
 <head>
 
 <title>main.jsp</title>
-<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+<script type="text/javascript" src="resouce/js/jquery-2.1.4.js"></script>
 <style type="text/css">
 .gray {
 	background-color: eaeaf6;
@@ -41,45 +40,45 @@
 <body>
 	<table style="margin: 21px;">
 		<tr>
-			<!-- ¸Ó¸®±Û : ¸Ş´º »ğÀÔ°ø°£ -->
+			<!-- ë¨¸ë¦¬ê¸€ : ë©”ë‰´ ì‚½ì…ê³µê°„ -->
 			<td width=1500 height=156><%@ include file="nav.jspf" %></td>
 		</tr>
 
 		<tr>
-			<!-- ÃÖ½Å¼ø´ë·Î -->
+			<!-- ìµœì‹ ìˆœëŒ€ë¡œ -->
 			<td><img src="img/newBar.gif"></td>
 		</tr>
 		<tr>
-			<td class="list" width=1461 height=725>ÃÖ½Å»óÇ°!</td>
+			<td class="list" width=1461 height=725>ìµœì‹ ìƒí’ˆ!</td>
 		</tr>
 		<tr>
 			<td class="more" width=1500><a href=""><img src="img/more.gif"></a></td>
 		</tr>
 		<tr>
 
-			<!-- ÀÎ±â»óÇ° -->
+			<!-- ì¸ê¸°ìƒí’ˆ -->
 			<td><img src="img/hotBar.gif"></td>
 		</tr>
 		<tr>
-			<td class="list"  width=1461 height=725>ÀÎ±â»óÇ°!</td>
+			<td class="list"  width=1461 height=725>ì¸ê¸°ìƒí’ˆ!</td>
 		</tr>
 		<tr>
 			<td class="more" width=1500><a href=""><img src="img/more.gif"></a></td>
 		</tr>
 		<tr>
 
-			<!-- ÇÁ¸®¹Ì¾ö »óÇ° -->
+			<!-- í”„ë¦¬ë¯¸ì—„ ìƒí’ˆ -->
 			<td><img src="img/premiumBar.gif"></td>
 		</tr>
 		<tr>
-			<td class="list"  width=1461 height=725>ÇÁ¸®¹Ì¾ö »óÇ°!</td>
+			<td class="list"  width=1461 height=725>í”„ë¦¬ë¯¸ì—„ ìƒí’ˆ!</td>
 		</tr>
 		<tr>
 			<td class="more" width=1500><a href=""><img src="img/more.gif"></a></td>
 		</tr>
 
 		<tr>
-			<!-- ¶óÀÌ¼±½º -->
+			<!-- ë¼ì´ì„ ìŠ¤ -->
 			<td><img src="img/copyright.gif"></td>
 		</tr>
 	</table>

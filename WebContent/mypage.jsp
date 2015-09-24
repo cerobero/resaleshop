@@ -77,7 +77,7 @@
 			<col style="width: 120px">
 			<col style="width: 180px">
 			<col style="width: 90px">
-			<col style="width: 140px">
+			<col style="width: 200px">
 		</colgroup>
   		<tr height="60">
     		<th class="tg-3xho">글번호</th>
@@ -90,9 +90,8 @@
 		<c:forEach var="article" items="${requestScope.articleList}">
  		<tr>
     		<td class="tg-q64d" height="60" align="center">${article.articleNo}</td>
-    		<td class="tg-q64d" height="60"align="center">${article.title}</td>
-<%--  <td class="tg-q64d" height="60" align="center"><a href="login?cmd=read&articleNum=${article.articleNo}">${article.title}</a></td> --%>
-<%--  <td class="tg-q64d" height="60" align="center"><a href="read.jsp&articleNum=${article.articleNo}">${article.title}</a></td> --%>
+			<td class="tg-q64d" height="60" align="center"><a href="itemInfo?type=read&articleNo=${article.articleNo}">${article.title}</a></td>
+<%--  <td class="tg-q64d" height="60" align="center"><a href="read.jsp&articleNo=${article.articleNo}">${article.title}</a></td> --%>
     		<td class="tg-cxkv" height="60" align="center"><fmt:formatNumber value="${article.price}" pattern="#,###.##원"/></td>
     		<td class="tg-cxkv" height="60" align="center"><fmt:formatDate value="${article.postingDate}" pattern="yyyy년 M월 d일 h:mm"/></td>
     <c:choose>
@@ -104,9 +103,9 @@
     	</c:when>
     </c:choose>
 			<td align="center">
-				<button type="button" onClick="location.href='login?cmd=soldout&articleNum=${article.articleNo}'">완료</button>
-				<button type="button" onClick="location.href='login?cmd=del&articleNum=${article.articleNo}'">삭제</button>
-<%--  <button type="button" onClick="location.href='login?cmd=mod&articleNum=${article.articleNo}'">수정</button> --%>
+				<button type="button" onClick="location.href='login?cmd=soldout&articleNo=${article.articleNo}'">완료</button>
+				<button type="button" onClick="location.href='itemInfo?cmd=mod&articleNo=${article.articleNo}'">수정</button>
+				<button type="button" onClick="location.href='login?cmd=del&articleNo=${article.articleNo}'">삭제</button>
 			</td>
   		</tr>
   		</c:forEach>

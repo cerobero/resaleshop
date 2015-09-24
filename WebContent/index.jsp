@@ -17,6 +17,12 @@
 
     <!-- Custom CSS -->
     <link href="resource/css/3-col-portfolio.css" rel="stylesheet">
+    <style type="text/css">
+    .img-responsive{
+     width=300;
+     height=150;
+    }
+    </style>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -57,7 +63,7 @@
         <div class="row">
             <div class="col-md-3 portfolio-item">
                 <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                    <img class="img-responsive"  alt="" src="">
                 </a>
                 <h3>
                     <a href="#">글제목</a>

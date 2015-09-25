@@ -76,7 +76,7 @@
 			<col style="width: 400px">
 			<col style="width: 80px">
 			<col style="width: 120px">
-			<col style="width: 180px">
+			<col style="width: 190px">
 			<col style="width: 100px">
 			<col style="width: 100px">
 		</colgroup>
@@ -94,9 +94,7 @@
     		<td class="tg-q64d" height="60" align="center">${article.articleNo}</td>
 			<td class="tg-q64d" height="60" align="center"><a href="itemInfo?type=read&articleNo=${article.articleNo}">${article.title}</a></td>
 <%-- 			<td class="tg-q64d" height="60" align="center"><a href="read.jsp&articleNo=${article.articleNo}">${article.title}</a></td> --%>
-<%-- 	 		<jsp:include page="login?cmd=count" flush="false"><jsp:param value="${article.articleNo}" name="articleNo"/></jsp:include> --%>
-<%-- 			<td class="tg-q64d" height="60" align="center">${countc}</td> --%>
-			<td></td>
+			<td class="tg-q64d" height="60" align="center">${article.commentNo}개</td>
     		<td class="tg-cxkv" height="60" align="center"><fmt:formatNumber value="${article.price}" pattern="#,###.##원"/></td>
     		<td class="tg-cxkv" height="60" align="center"><fmt:formatDate value="${article.postingDate}" pattern="yyyy년 M월 d일 H:mm"/></td>
     <c:choose>

@@ -39,12 +39,12 @@ public class GoodsVo {
 		this.title = title;
 	}
 
-	public int getCommentNoNo() {
+	public int getCommentNo() {
 		return commentNo;
 	}
 
-	public void setCommentNoNo(int commentNoNo) {
-		this.commentNo = commentNoNo;
+	public void setCommentNo(int commentNo) {
+		this.commentNo = commentNo;
 	}
 
 	public int getPrice() {

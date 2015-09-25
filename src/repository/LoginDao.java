@@ -61,7 +61,8 @@ public class LoginDao {
 		List<GoodsVo> result = new ArrayList<>();
 		
 		try{
-		String sql = "select article_no,title,price,posting_date,soldout from article where user_id=?";
+//			String sql = "select article_no,title,price,posting_date,soldout from article where user_id=?";
+			String sql = "select A.article_no, A.title, A.price, A.posting_date, A.soldout, (select count(*) as cnt from comment where article_no=A.article_no) cnt from article A where user_id=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, sid);
 			rs = pstmt.executeQuery();
@@ -73,6 +74,7 @@ public class LoginDao {
 				goods.setPrice(rs.getInt(3));
 				goods.setPostingDate(rs.getTimestamp(4));
 				goods.setSoldout(rs.getInt(5));
+				goods.setCommentNo(rs.getInt(6));
 				
 				result.add(goods);
 			}
@@ -86,25 +88,6 @@ public class LoginDao {
 			}catch (SQLException se){}
 		}
 		return result;
-	}
-	
-	public int count(int anum) throws ClassNotFoundException, SQLException {
-		PreparedStatement pstmt = null;
-		int result = 0;
-		
-		try{
-		String sql = "select count(*) from comment where article_no=?";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, anum);
-			result = pstmt.executeUpdate();
-		}catch(SQLException e){
-			System.out.println(e.getMessage());
-		}finally {
-			try{
-				if(pstmt != null){pstmt.close();}
-				if(con != null){con.close();con=null;}
-			}catch(SQLException se){}
-		}return result;
 	}
 	
 	public int sold(int anum) throws ClassNotFoundException, SQLException {

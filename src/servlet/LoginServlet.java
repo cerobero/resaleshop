@@ -36,8 +36,6 @@ public class LoginServlet extends HttpServlet{
 			service.soldout(request,response);
 		}else if(cmd.equals("del")){
 			service.delArticle(request,response);
-		}else if(cmd.equals("count")){
-			service.countComments(request, response);
 		}else if(cmd.equals("mypage")){
 			service.myPage(request,response);}
 		}catch(ClassNotFoundException | SQLException e) {

@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
     <meta charset="UTF-8">
@@ -31,15 +31,7 @@
     	
     	.nopadding
     	{padding-left: 0px;}
-    	
-    <style type="text/css">
-	  	.tg  {border-collapse:collapse;border-spacing:0;border-color:#aaa;}
-	  	.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aaa;color:#333;background-color:#fff;}
-		.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aaa;color:#fff;background-color:#f38630;}
-		.tg .tg-cxkv{background-color:#ffffff}
-		.tg .tg-3xho{font-weight:bold;background-color:#ffc702;color:#000000;text-align:center}
-		.tg .tg-q64d{background-color:#ffffff;color:#333333}
-    </style>
+    </style>	
 </head>
 
 <body>
@@ -58,11 +50,9 @@
 
         <!-- Page Header -->
         <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">
-                	[${sessionScope.id }]님의 마이페이지
-                </h1>
-            </div>
+			<h1 class="page-header text-muted">
+				<mark>${sessionScope.id }</mark>님의 마이페이지
+            </h1>
         </div>
         <!-- /.row -->
 
@@ -70,45 +60,38 @@
         <div class="row">
         <div class="col-md-12 portfolio-item">
             
-	<table class="tg" style="undefined;table-layout: auto;">
-		<colgroup>
-			<col style="width: 80px">
-			<col style="width: 400px">
-			<col style="width: 80px">
-			<col style="width: 120px">
-			<col style="width: 190px">
-			<col style="width: 100px">
-			<col style="width: 100px">
-		</colgroup>
-  		<tr height="60">
-    		<th class="tg-3xho">글번호</th>
-    		<th class="tg-3xho">제 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 목</th>
-    		<th class="tg-3xho">댓 글</th>
-    		<th class="tg-3xho">판 매 가</th>
-    		<th class="tg-3xho">등 록 일</th>
-    		<th class="tg-3xho">현재상태</th>
-    		<th class="tg-3xho">변 &nbsp; &nbsp; 경</th>
+	<table class="table table-striped table-hover">
+		<tr class="info">
+    		<th class="text-center">글번호</th>
+    		<th class="text-center">제 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 목</th>
+    		<th class="text-center ">댓 글</th>
+    		<th class="text-center">판 매 가</th>
+    		<th class="text-center">등 록 일</th>
+    		<th class="text-center">현재상태</th>
+    		<th class="text-center">변 &nbsp; &nbsp; 경</th>
  		</tr>
 		<c:forEach var="article" items="${requestScope.articleList}">
  		<tr>
-    		<td class="tg-q64d" height="60" align="center">${article.articleNo}</td>
-			<td class="tg-q64d" height="60" align="center"><a href="itemInfo?type=read&articleNo=${article.articleNo}">${article.title}</a></td>
-<%-- 			<td class="tg-q64d" height="60" align="center"><a href="read.jsp&articleNo=${article.articleNo}">${article.title}</a></td> --%>
-			<td class="tg-q64d" height="60" align="center">${article.commentNo}개</td>
-    		<td class="tg-cxkv" height="60" align="center"><fmt:formatNumber value="${article.price}" pattern="#,###.##원"/></td>
-    		<td class="tg-cxkv" height="60" align="center"><fmt:formatDate value="${article.postingDate}" pattern="yyyy년 M월 d일 H:mm"/></td>
+    		<td class="text-center">${article.articleNo}</td>
+			<td class="text-center"><a href="itemInfo?type=read&articleNo=${article.articleNo}">${article.title}</a></td>
+<%-- 		<td class="text-center"><a href="read.jsp&articleNo=${article.articleNo}">${article.title}</a></td> --%>
+			<td class="text-center"><code>${article.commentNo}개</code></td>
+    		<td class="text-center"><fmt:formatNumber value="${article.price}" pattern="#,###.##원"/></td>
+    		<td class="text-center"><fmt:formatDate value="${article.postingDate}" pattern="yyyy년 M월 d일 H:mm"/></td>
     <c:choose>
     	<c:when test="${article.soldout==1}">
-			<td align="center">판매완료</td>
+			<td class="text-center"><code>판매완료</code></td>
     	</c:when>
     	<c:when test="${article.soldout==0}">
-			<td align="center">판매중</td>
+			<td class="text-center"><kbd>판매중</kbd></td>
     	</c:when>
     </c:choose>
 			<td align="center">
-				<button type="button" class="btn btn-default" onClick="location.href='login?cmd=soldout&articleNo=${article.articleNo}'">완료</button><br>
-				<button type="button" class="btn btn-default" onClick="location.href='itemInfo?cmd=mod&articleNo=${article.articleNo}'">수정</button><br>
+			<div class="btn-group-vertical">
+				<button type="button" class="btn btn-default" onClick="location.href='login?cmd=soldout&articleNo=${article.articleNo}'">완료</button>
+				<button type="button" class="btn btn-default" onClick="location.href='itemInfo?cmd=mod&articleNo=${article.articleNo}'">수정</button>
 				<button type="button" class="btn btn-default" onClick="location.href='login?cmd=del&articleNo=${article.articleNo}'">삭제</button>
+			</div>
 			</td>
   		</tr>
   		</c:forEach>

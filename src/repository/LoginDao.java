@@ -61,8 +61,8 @@ public class LoginDao {
 		List<GoodsVo> result = new ArrayList<>();
 		
 		try{
-//			String sql = "select article_no,title,price,posting_date,soldout from article where user_id=?";
-			String sql = "select A.article_no, A.title, A.price, A.posting_date, A.soldout, (select count(*) as cnt from comment where article_no=A.article_no) cnt from article A where user_id=?";
+			String sql = "select A.article_no, A.title, A.price, A.posting_date, A.soldout,"
+					+ "(select count(*) as cnt from comment where article_no=A.article_no) cnt from article A where user_id=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, sid);
 			rs = pstmt.executeQuery();

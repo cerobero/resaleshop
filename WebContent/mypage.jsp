@@ -75,9 +75,9 @@
     		<td class="text-center">${article.articleNo}</td>
 			<td class="text-center"><a href="itemInfo?type=read&articleNo=${article.articleNo}">${article.title}</a></td>
 <%-- 		<td class="text-center"><a href="read.jsp&articleNo=${article.articleNo}">${article.title}</a></td> --%>
-			<td class="text-center"><code>${article.commentNo}개</code></td>
-    		<td class="text-center"><fmt:formatNumber value="${article.price}" pattern="#,###.##원"/></td>
-    		<td class="text-center"><fmt:formatDate value="${article.postingDate}" pattern="yyyy년 M월 d일 H:mm"/></td>
+			<td class="text-center text-success"><span class="glyphicon glyphicon-comment"></span> (${article.commentNo})</td>
+    		<td class="text-center"><fmt:formatNumber value="${article.price}" pattern="￦ #,###.##"/> </td>
+    		<td class="text-center text-warning"><fmt:formatDate value="${article.postingDate}" pattern="yyyy년 M월 d일 H:mm"/></td>
     <c:choose>
     	<c:when test="${article.soldout==1}">
 			<td class="text-center"><code>판매완료</code></td>
@@ -88,9 +88,9 @@
     </c:choose>
 			<td align="center">
 			<div class="btn-group-vertical">
-				<button type="button" class="btn btn-default" onClick="location.href='login?cmd=soldout&articleNo=${article.articleNo}'">완료</button>
-				<button type="button" class="btn btn-default" onClick="location.href='itemInfo?cmd=mod&articleNo=${article.articleNo}'">수정</button>
-				<button type="button" class="btn btn-default" onClick="location.href='login?cmd=del&articleNo=${article.articleNo}'">삭제</button>
+				<button type="button" class="btn btn-default" onClick="location.href='login?cmd=soldout&articleNo=${article.articleNo}'"><span class="glyphicon glyphicon-ok"></span> 완료</button>
+				<button type="button" class="btn btn-default" onClick="location.href='itemInfo?cmd=mod&articleNo=${article.articleNo}'"><span class="glyphicon glyphicon-pencil"></span> 수정</button>
+				<button type="button" class="btn btn-default" onClick="location.href='login?cmd=del&articleNo=${article.articleNo}'"><span class="glyphicon glyphicon-trash"></span> 삭제</button>
 			</div>
 			</td>
   		</tr>

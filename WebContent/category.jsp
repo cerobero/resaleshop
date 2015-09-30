@@ -1,4 +1,6 @@
+<%@page import="vo.ArticlePage"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,112 +54,65 @@
         </div>
         <!-- /.row -->
 
-        <!-- Projects Row -->
-        <div class="row">
-            <div class="col-md-3 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x400" alt="">
-                </a>
-                <h3>
-                    <a href="#">글제목</a>
-                </h3>
-                <p>간략한 글설명</p>
-            </div>
-            <div class="col-md-3 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x400" alt="">
-                </a>
-                <h3>
-                    <a href="#">글제목</a>
-                </h3>
-                <p>간략한 글설명</p>
-            </div>
-            <div class="col-md-3 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x400" alt="">
-                </a>
-                <h3>
-                    <a href="#">글제목</a>
-                </h3>
-                <p>간략한 글설명</p>
-            </div>
-            <div class="col-md-3 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x400" alt="">
-                </a>
-                <h3>
-                    <a href="#">글제목</a>
-                </h3>
-                <p>간략한 글설명</p>
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <!-- Projects Row -->
-        <div class="row">
-            <div class="col-md-3 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x400" alt="">
-                </a>
-                <h3>
-                    <a href="#">글제목</a>
-                </h3>
-                <p>간략한 글설명</p>
-            </div>
-            <div class="col-md-3 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x400" alt="">
-                </a>
-                <h3>
-                    <a href="#">글제목</a>
-                </h3>
-                <p>간략한 글설명</p>
-            </div>
-            <div class="col-md-3 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x400" alt="">
-                </a>
-                <h3>
-                    <a href="#">글제목</a>
-                </h3>
-                <p>간략한 글설명</p>
-            </div>
-            <div class="col-md-3 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x400" alt="">
-                </a>
-                <h3>
-                    <a href="#">글제목</a>
-                </h3>
-                <p>간략한 글설명</p>
-            </div>
-        </div>
+		<c:if test="${requestScope.articlePage.pageArticleCount > 0 }">
+			<div class="row">
+				<c:forEach var="article" items="${requestScope.articlePage.articleList }" begin="0" end="${requestScope.articlePage.pageArticleCount > 4 ? 4 - 1 : requestScope.articlePage.pageArticleCount }">
+					<div class="col-md-3 portfolio-item">
+						<a href="#">
+	                    	<img class="img-responsive" src="http://placehold.it/700x400" alt="">
+		                </a>
+		                <h3>
+		                    <a href="#">${article.title }</a>
+		                </h3>
+		                <p class="text-overflow">${article.content }</p>
+					</div>
+				</c:forEach>
+			</div>
+		</c:if>
+		<c:if test="${requestScope.articlePage.pageArticleCount > 4 }">
+			<div class="row">
+				<c:forEach var="article" items="${requestScope.articlePage.articleList }" begin="4" end="${requestScope.articlePage.pageArticleCount - 1 }">
+					<div class="col-md-3 portfolio-item">
+						<a href="#">
+	                    	<img class="img-responsive" src="http://placehold.it/700x400" alt="">
+		                </a>
+		                <h3>
+		                    <a href="#">${article.title }</a>
+		                </h3>
+		                <p class="text-overflow">${article.content }</p>
+					</div>
+				</c:forEach>
+			</div>
+		</c:if>
         
         <!-- Pagination -->
         <div class="row text-center">
             <div class="col-lg-12">
                 <ul class="pagination">
-                    <li>
-                        <a href="#">&laquo;</a>
-                    </li>
-                    <li class="active">
-                        <a href="#">1</a>
-                    </li>
-                    <li>
-                        <a href="#">2</a>
-                    </li>
-                    <li>
-                        <a href="#">3</a>
-                    </li>
-                    <li>
-                        <a href="#">4</a>
-                    </li>
-                    <li>
-                        <a href="#">5</a>
-                    </li>
-                    <li>
-                        <a href="#">&raquo;</a>
-                    </li>
+               		<c:if test="${requestScope.articlePage.currentPage != requestScope.articlePage.startPage }">
+	                    <li>
+	               			<a href="list?page${requestScope.articlePage.currentPage - 1 }">&laquo;</a>
+	                    </li>
+               		</c:if>
+                    <c:forEach var="num" begin="${requestScope.articlePage.startPage }" end="${requestScope.articlePage.endPage }" varStatus="status">
+                    	<c:choose>
+                    		<c:when test="${requestScope.articlePage.currentPage == num }">
+                    			<li>
+									<a class="active" href="list?page=${num }">${num }</a>
+								</li>
+							</c:when>
+							<c:otherwise>
+								<li>
+									<a href="list?page=${num }">${num }</a>
+								</li>
+							</c:otherwise>
+                    	</c:choose>
+                    </c:forEach>
+                    <c:if test="${requestScope.articlePage.currentPage != requestScope.articlePage.endPage }">
+	                    <li>
+	                        <a href="list?page${requestScope.articlePage.currentPage + 1 }">&raquo;</a>
+	                    </li>
+                    </c:if>
                 </ul>
             </div>
         </div>

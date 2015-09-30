@@ -46,19 +46,19 @@
 <!-- 		    	모바일 화면에서 보이는 메뉴 -->
 		    	<ul class="nav navbar-nav visible-xs">
 	                    <li>
-	                        <a href="list?categoryId=1">IT</a>
+	                        <a href="list?categoryId=1">IT기기</a>
 	                    </li>
 	                    <li>
-	                        <a href="list?categoryId=2">APPLIANCES</a>
+	                        <a href="list?categoryId=2">가전제품</a>
 	                    </li>
 	                    <li>
-	                        <a href="list?categoryId=3">CAR</a>
+	                        <a href="list?categoryId=3">중고차</a>
 	                    </li>
 	                    <li>
-	                        <a href="list?categoryId=4">HOBBY</a>
+	                        <a href="list?categoryId=4">취미</a>
 	                    </li>
 	                    <li>
-	                        <a href="list?categoryId=5">CLOTHES</a>
+	                        <a href="list?categoryId=5">의복</a>
 	                    </li>
 	            </ul>
             </div>
@@ -66,19 +66,19 @@
 <!-- 	    		모바일 외의 화면에서 보이는 메뉴 -->
 		    	<ul class="nav navbar-nav">
 	                    <li>
-	                        <a href="list?categoryId=1">IT</a>
+	                        <a href="list?categoryId=1">IT기기</a>
 	                    </li>
 	                    <li>
-	                        <a href="list?categoryId=2">APPLIANCES</a>
+	                        <a href="list?categoryId=2">가전제품</a>
 	                    </li>
 	                    <li>
-	                        <a href="list?categoryId=3">CAR</a>
+	                        <a href="list?categoryId=3">중고차</a>
 	                    </li>
 	                    <li>
-	                        <a href="list?categoryId=4">HOBBY</a>
+	                        <a href="list?categoryId=4">취미</a>
 	                    </li>
 	                    <li>
-	                        <a href="list?categoryId=5">CLOTHES</a>
+	                        <a href="list?categoryId=5">의복</a>
 	                    </li>
 	            </ul>
             </div>

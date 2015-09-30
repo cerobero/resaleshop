@@ -58,19 +58,19 @@
                 <h1 class="page-header">
                 	<c:choose>
                 		<c:when test="${param.categoryId == 1 }">
-                			IT - 최신 등록상품
+                			IT기기 - 최신 등록상품
                 		</c:when>
                 		<c:when test="${param.categoryId == 2 }">
-                			APPLIANCES - 최신 등록상품
+                			가전제품 - 최신 등록상품
                 		</c:when>
                 		<c:when test="${param.categoryId == 3 }">
-                			CAR - 최신 등록상품
+                			중고차 - 최신 등록상품
                 		</c:when>
                 		<c:when test="${param.categoryId == 4 }">
-                			HOBBY - 최신 등록상품
+                			취미 - 최신 등록상품
                 		</c:when>
                 		<c:when test="${param.categoryId == 5 }">
-                			CLOTHES - 최신 등록상품
+                			의복 - 최신 등록상품
                 		</c:when>
                 		<c:otherwise>
 		                	전체 - 최신 등록상품

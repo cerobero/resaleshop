@@ -142,16 +142,16 @@ public class MainMenuService {
 	
 	//상품정보 읽을 때 조회수도 증가시켜주는 메소드
 		public Article MainReadArticle(HttpServletRequest request) throws ClassNotFoundException, SQLException{
-			String articleIdStr=request.getParameter("articleId");
-			int articleId=Integer.parseInt(articleIdStr);
+			String articleNoStr=request.getParameter("articleNo");
+			int articleNo=Integer.parseInt(articleNoStr);
 			
 			mainMenuDao dao = mainMenuDao.getInstance();
 			Connection con = ConnectionDao.startConnection();
 			dao.setConnection(con);
 			
 			Article result=null;
-			if(dao.MainUpdatedReadCount(articleId)>0){
-				result=dao.MainSelectArticle(articleId);
+			if(dao.MainUpdatedReadCount(articleNo)>0){
+				result=dao.MainSelectArticle(articleNo);
 			}
 			
 			dao.setConnection(con);

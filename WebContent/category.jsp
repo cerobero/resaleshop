@@ -86,7 +86,7 @@
 				<c:forEach var="article" items="${requestScope.articlePage.articleList }" begin="0" end="${requestScope.articlePage.pageArticleCount > 4 ? 4 - 1 : requestScope.articlePage.pageArticleCount }">
 					<div class="col-md-3 portfolio-item">
 						<a href="#">
-	                    	<img class="img-responsive" src="http://placehold.it/700x400" alt="">
+	                    	<img class="img-responsive" src="${article.photo }" alt="">
 		                </a>
 		                <h3>
 		                    <a class="abbreviation" href="#">${article.title }</a>
@@ -101,7 +101,7 @@
 				<c:forEach var="article" items="${requestScope.articlePage.articleList }" begin="4" end="${requestScope.articlePage.pageArticleCount - 1 }">
 					<div class="col-md-3 portfolio-item">
 						<a href="#">
-	                    	<img class="img-responsive" src="http://placehold.it/700x400" alt="">
+	                    	<img class="img-responsive" src="${article.photo }" alt="">
 		                </a>
 		                <h3>
 		                    <a class="abbreviation" href="#">${article.title }</a>
@@ -119,26 +119,26 @@
                 <ul class="pagination">
                		<c:if test="${requestScope.articlePage.currentPage != requestScope.articlePage.startPage }">
 	                    <li>
-	               			<a href="list?categoryId=${param.categoryId }&page=${requestScope.articlePage.currentPage - 1 }">&laquo;</a>
+	               			<a href="list?categoryId=${param.categoryId }&page=${requestScope.articlePage.currentPage - 1 }&search=${param.search }">&laquo;</a>
 	                    </li>
                		</c:if>
                     <c:forEach var="num" begin="${requestScope.articlePage.startPage }" end="${requestScope.articlePage.endPage }" varStatus="status">
                     	<c:choose>
                     		<c:when test="${requestScope.articlePage.currentPage == num }">
                     			<li>
-									<a class="active" href="list?categoryId=${param.categoryId }&page=${num }">${num }</a>
+									<a class="active" href="list?categoryId=${param.categoryId }&page=${num }&search=${param.search }">${num }</a>
 								</li>
 							</c:when>
 							<c:otherwise>
 								<li>
-									<a href="list?categoryId=${param.categoryId }&page=${num }">${num }</a>
+									<a href="list?categoryId=${param.categoryId }&page=${num }&search=${param.search }">${num }</a>
 								</li>
 							</c:otherwise>
                     	</c:choose>
                     </c:forEach>
                     <c:if test="${requestScope.articlePage.currentPage != requestScope.articlePage.endPage }">
 	                    <li>
-	                        <a href="list?categoryId=${param.categoryId }&page=${requestScope.articlePage.currentPage + 1 }">&raquo;</a>
+	                        <a href="list?categoryId=${param.categoryId }&page=${requestScope.articlePage.currentPage + 1 }&search=${param.search }">&raquo;</a>
 	                    </li>
                     </c:if>
                 </ul>
@@ -146,10 +146,11 @@
         </div>
         
         <div class="row">
-	        <form class="input-form" role="search">
+	        <form class="input-form" role="search" action="list" method="get">
 	        	<div class="col-lg-4 col-lg-offset-4">
 					<div class="input-group">
-						<input type="text" class="form-control" style="margin-right: 35px, border: 1px solid black;" placeholder="검색">
+						<input name="search" type="text" class="form-control" style="margin-right: 35px, border: 1px solid black;" placeholder="검색">
+						<input name="categoryId" type="hidden" value="${param.categoryId }">
 						<span class="input-group-btn">
 							<button type="submit" class="btn btn-default">
 								<span class="glyphicon glyphicon-search">

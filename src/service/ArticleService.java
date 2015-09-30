@@ -40,14 +40,16 @@ public class ArticleService
 		int startPage = 1;
 		int endPage = 1;
 		int totalPage = 1;
+		String search = request.getParameter("search");
+		search = search == null ? "" : search;
 		
-		articleCount = categoryId == 0 ? articleDao.selectArticleCountAll() : articleDao.selectArticleCountCategory(categoryId);
+		articleCount = categoryId == 0 ? articleDao.selectArticleCountAll(search) : articleDao.selectArticleCountCategory(search, categoryId);
 		currentPage = selectPage > 0 ? selectPage : 1;
 		totalPage = articleCount % ARTICLE_PER_PAGE != 0 ? articleCount / ARTICLE_PER_PAGE + 1 : articleCount / ARTICLE_PER_PAGE;
 		startPage = currentPage > VIEW_PAGES / 2 ? currentPage - VIEW_PAGES / 2 + 1 : 1;
 		endPage = totalPage > startPage + VIEW_PAGES - 1 ? startPage + VIEW_PAGES - 1 : totalPage;
 		startPage = totalPage == endPage && endPage > ARTICLE_PER_PAGE && startPage > ARTICLE_PER_PAGE ? endPage - ARTICLE_PER_PAGE + 1 : startPage;
-		articleList = categoryId == 0 ? articleDao.selectArticleListAll((currentPage - 1) * ARTICLE_PER_PAGE, ARTICLE_PER_PAGE) : articleDao.selectArticleListCategory(categoryId, (currentPage - 1) * ARTICLE_PER_PAGE, ARTICLE_PER_PAGE);
+		articleList = categoryId == 0 ? articleDao.selectArticleListAll(search, (currentPage - 1) * ARTICLE_PER_PAGE, ARTICLE_PER_PAGE) : articleDao.selectArticleListCategory(search, categoryId, (currentPage - 1) * ARTICLE_PER_PAGE, ARTICLE_PER_PAGE);
 		pageArticleCount = articleList.size();
 		System.out.println("pageArticleCount = " + pageArticleCount);
 		System.out.println(String.format("startPage = %d, endPage = %d, currentPage = %d, selectPage = %d, totalPage = %d", startPage, endPage, currentPage, selectPage, totalPage));

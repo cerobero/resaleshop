@@ -130,7 +130,7 @@ public class ArticleDao
 		return article;
 	}
 	
-	public List<Article> selectArticleListAll(int startIndex, int numOfIndex)
+	public List<Article> selectArticleListAll(String search, int startIndex, int numOfIndex)
 	{
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -139,86 +139,11 @@ public class ArticleDao
 		numOfIndex = numOfIndex > 0 ? numOfIndex : 0;
 		System.out.println(String.format("selectArticleListAll %d, %d", startIndex, numOfIndex));
 		
-		String sql = "SELECT * FROM ARTICLE ORDER BY ARTICLE_NO DESC LIMIT ?, ?";
+		String sql = "SELECT * FROM ARTICLE WHERE TITLE LIKE ? ORDER BY ARTICLE_NO DESC LIMIT ?, ?";
 		try
 		{
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, startIndex);
-			pstmt.setInt(2, numOfIndex);
-			
-			rs = pstmt.executeQuery();
-			
-			articleList = new ArrayList<>();
-			
-			while (rs.next())
-			{
-				Article article = new Article();
-				
-				article.setArticleNo(rs.getInt(1));
-				article.setUserId(rs.getString(2));
-				article.setTitle(rs.getString(3));
-				article.setPrice(rs.getInt(4));
-				article.setReadCount(rs.getInt(5));
-				article.setPostingDate(rs.getDate(6));
-				article.setPremiume(rs.getInt(7));
-				article.setPhoto(rs.getString(8));
-				article.setCategoryId(rs.getInt(9));
-				article.setContent(rs.getString(10));
-				article.setSoldout(rs.getInt(11));
-				
-				articleList.add(article);
-			}
-		}
-		catch (SQLException e)
-		{
-			e.printStackTrace();
-		}
-		finally
-		{
-			if (pstmt != null)
-			{
-				try
-				{
-					pstmt.close();
-					pstmt = null;
-				}
-				catch (SQLException e)
-				{
-					e.printStackTrace();
-				}
-			}
-			
-			if (rs != null)
-			{
-				try
-				{
-					rs.close();
-					rs = null;
-				}
-				catch (SQLException e)
-				{
-					e.printStackTrace();
-				}
-			}
-		}
-		
-		return articleList;
-	}
-
-	public List<Article> selectArticleListCategory(int categoryId, int startIndex, int numOfIndex)
-	{
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		List<Article> articleList = null;
-		startIndex = startIndex > 0 ? startIndex : 0;
-		numOfIndex = numOfIndex > 0 ? numOfIndex : 0;
-		System.out.println(String.format("selectArticleListCategory %d, %d", startIndex, numOfIndex));
-		
-		String sql = "SELECT * FROM ARTICLE WHERE CATEGORY_ID = ? ORDER BY ARTICLE_NO DESC LIMIT ?, ?";
-		try
-		{
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, categoryId);
+			pstmt.setString(1, String.format("%%%s%%", search));
 			pstmt.setInt(2, startIndex);
 			pstmt.setInt(3, numOfIndex);
 			
@@ -281,16 +206,94 @@ public class ArticleDao
 		return articleList;
 	}
 
-	public int selectArticleCountAll()
+	public List<Article> selectArticleListCategory(String search, int categoryId, int startIndex, int numOfIndex)
+	{
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<Article> articleList = null;
+		startIndex = startIndex > 0 ? startIndex : 0;
+		numOfIndex = numOfIndex > 0 ? numOfIndex : 0;
+		System.out.println(String.format("selectArticleListCategory %d, %d", startIndex, numOfIndex));
+		
+		String sql = "SELECT * FROM ARTICLE WHERE CATEGORY_ID = ? AND TITLE LIKE ? ORDER BY ARTICLE_NO DESC LIMIT ?, ?";
+		try
+		{
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, categoryId);
+			pstmt.setString(2, String.format("%%%s%%", search));
+			pstmt.setInt(3, startIndex);
+			pstmt.setInt(4, numOfIndex);
+			
+			rs = pstmt.executeQuery();
+			
+			articleList = new ArrayList<>();
+			
+			while (rs.next())
+			{
+				Article article = new Article();
+				
+				article.setArticleNo(rs.getInt(1));
+				article.setUserId(rs.getString(2));
+				article.setTitle(rs.getString(3));
+				article.setPrice(rs.getInt(4));
+				article.setReadCount(rs.getInt(5));
+				article.setPostingDate(rs.getDate(6));
+				article.setPremiume(rs.getInt(7));
+				article.setPhoto(rs.getString(8));
+				article.setCategoryId(rs.getInt(9));
+				article.setContent(rs.getString(10));
+				article.setSoldout(rs.getInt(11));
+				
+				articleList.add(article);
+			}
+		}
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			if (pstmt != null)
+			{
+				try
+				{
+					pstmt.close();
+					pstmt = null;
+				}
+				catch (SQLException e)
+				{
+					e.printStackTrace();
+				}
+			}
+			
+			if (rs != null)
+			{
+				try
+				{
+					rs.close();
+					rs = null;
+				}
+				catch (SQLException e)
+				{
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		return articleList;
+	}
+
+	public int selectArticleCountAll(String search)
 	{
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		int articleCount = 0;
 		
-		String sql = "SELECT COUNT(*) FROM ARTICLE";
+		String sql = "SELECT COUNT(*) FROM ARTICLE WHERE TITLE LIKE ?";
 		try
 		{
 			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, String.format("%%%s%%", search));
 			
 			rs = pstmt.executeQuery();
 			
@@ -335,17 +338,18 @@ public class ArticleDao
 		return articleCount;
 	}
 
-	public int selectArticleCountCategory(int categoryId)
+	public int selectArticleCountCategory(String search, int categoryId)
 	{
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		int articleCount = 0;
 		
-		String sql = "SELECT COUNT(*) FROM ARTICLE WHERE CATEGORY_ID = ?";
+		String sql = "SELECT COUNT(*) FROM ARTICLE WHERE CATEGORY_ID = ? AND TITLE LIKE ?";
 		try
 		{
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, categoryId);
+			pstmt.setString(2, String.format("%%%s%%", search));
 			
 			rs = pstmt.executeQuery();
 			

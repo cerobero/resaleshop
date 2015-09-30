@@ -87,11 +87,11 @@ public class ArticleDao
 				article.setPrice(rs.getInt(4));
 				article.setReadCount(rs.getInt(5));
 				article.setPostingDate(rs.getDate(6));
-				article.setPremiume(rs.getBoolean(7));
+				article.setPremiume(rs.getInt(7));
 				article.setPhoto(rs.getString(8));
 				article.setCategoryId(rs.getInt(9));
 				article.setContent(rs.getString(10));
-				article.setSoldout(rs.getBoolean(11));
+				article.setSoldout(rs.getInt(11));
 			}
 		}
 		catch (SQLException e)
@@ -160,11 +160,11 @@ public class ArticleDao
 				article.setPrice(rs.getInt(4));
 				article.setReadCount(rs.getInt(5));
 				article.setPostingDate(rs.getDate(6));
-				article.setPremiume(rs.getBoolean(7));
+				article.setPremiume(rs.getInt(7));
 				article.setPhoto(rs.getString(8));
 				article.setCategoryId(rs.getInt(9));
 				article.setContent(rs.getString(10));
-				article.setSoldout(rs.getBoolean(11));
+				article.setSoldout(rs.getInt(11));
 				
 				articleList.add(article);
 			}
@@ -236,11 +236,11 @@ public class ArticleDao
 				article.setPrice(rs.getInt(4));
 				article.setReadCount(rs.getInt(5));
 				article.setPostingDate(rs.getDate(6));
-				article.setPremiume(rs.getBoolean(7));
+				article.setPremiume(rs.getInt(7));
 				article.setPhoto(rs.getString(8));
 				article.setCategoryId(rs.getInt(9));
 				article.setContent(rs.getString(10));
-				article.setSoldout(rs.getBoolean(11));
+				article.setSoldout(rs.getInt(11));
 				
 				articleList.add(article);
 			}

@@ -46,13 +46,19 @@
 <!-- 		    	모바일 화면에서 보이는 메뉴 -->
 		    	<ul class="nav navbar-nav visible-xs">
 	                    <li>
-	                        <a href="category.jsp">카테고리1</a>
+	                        <a href="list?categoryId=1">IT</a>
 	                    </li>
 	                    <li>
-	                        <a href="category.jsp">카테고리2</a>
+	                        <a href="list?categoryId=2">APPLIANCES</a>
 	                    </li>
 	                    <li>
-	                        <a href="category.jsp">카테고리3</a>
+	                        <a href="list?categoryId=3">CAR</a>
+	                    </li>
+	                    <li>
+	                        <a href="list?categoryId=4">HOBBY</a>
+	                    </li>
+	                    <li>
+	                        <a href="list?categoryId=5">CLOTHES</a>
 	                    </li>
 	            </ul>
             </div>
@@ -60,13 +66,19 @@
 <!-- 	    		모바일 외의 화면에서 보이는 메뉴 -->
 		    	<ul class="nav navbar-nav">
 	                    <li>
-	                        <a href="category.jsp">카테고리1</a>
+	                        <a href="list?categoryId=1">IT</a>
 	                    </li>
 	                    <li>
-	                        <a href="category.jsp">카테고리2</a>
+	                        <a href="list?categoryId=2">APPLIANCES</a>
 	                    </li>
 	                    <li>
-	                        <a href="category.jsp">카테고리3</a>
+	                        <a href="list?categoryId=3">CAR</a>
+	                    </li>
+	                    <li>
+	                        <a href="list?categoryId=4">HOBBY</a>
+	                    </li>
+	                    <li>
+	                        <a href="list?categoryId=5">CLOTHES</a>
 	                    </li>
 	            </ul>
             </div>

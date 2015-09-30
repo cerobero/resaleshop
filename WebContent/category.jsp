@@ -48,7 +48,26 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                	카테고리 - 최신 등록상품
+                	<c:choose>
+                		<c:when test="${param.categoryId == 1 }">
+                			IT - 최신 등록상품
+                		</c:when>
+                		<c:when test="${param.categoryId == 2 }">
+                			APPLIANCES - 최신 등록상품
+                		</c:when>
+                		<c:when test="${param.categoryId == 3 }">
+                			CAR - 최신 등록상품
+                		</c:when>
+                		<c:when test="${param.categoryId == 4 }">
+                			HOBBY - 최신 등록상품
+                		</c:when>
+                		<c:when test="${param.categoryId == 5 }">
+                			CLOTHES - 최신 등록상품
+                		</c:when>
+                		<c:otherwise>
+		                	전체 - 최신 등록상품
+                		</c:otherwise>
+                	</c:choose>
                 </h1>
             </div>
         </div>
@@ -86,31 +105,32 @@
 		</c:if>
         
         <!-- Pagination -->
+        <c:if test="${requestScope.articlePage.articleCount > 0 }">
         <div class="row text-center">
             <div class="col-lg-12">
                 <ul class="pagination">
                		<c:if test="${requestScope.articlePage.currentPage != requestScope.articlePage.startPage }">
 	                    <li>
-	               			<a href="list?page${requestScope.articlePage.currentPage - 1 }">&laquo;</a>
+	               			<a href="list?categoryId=${param.categoryId }&page=${requestScope.articlePage.currentPage - 1 }">&laquo;</a>
 	                    </li>
                		</c:if>
                     <c:forEach var="num" begin="${requestScope.articlePage.startPage }" end="${requestScope.articlePage.endPage }" varStatus="status">
                     	<c:choose>
                     		<c:when test="${requestScope.articlePage.currentPage == num }">
                     			<li>
-									<a class="active" href="list?page=${num }">${num }</a>
+									<a class="active" href="list?categoryId=${param.categoryId }&page=${num }">${num }</a>
 								</li>
 							</c:when>
 							<c:otherwise>
 								<li>
-									<a href="list?page=${num }">${num }</a>
+									<a href="list?categoryId=${param.categoryId }&page=${num }">${num }</a>
 								</li>
 							</c:otherwise>
                     	</c:choose>
                     </c:forEach>
                     <c:if test="${requestScope.articlePage.currentPage != requestScope.articlePage.endPage }">
 	                    <li>
-	                        <a href="list?page${requestScope.articlePage.currentPage + 1 }">&raquo;</a>
+	                        <a href="list?categoryId=${param.categoryId }&page=${requestScope.articlePage.currentPage + 1 }">&raquo;</a>
 	                    </li>
                     </c:if>
                 </ul>
@@ -136,6 +156,7 @@
         <!-- /.row -->
 
         <hr>
+        </c:if>
 
         <!-- Footer -->
         <footer>

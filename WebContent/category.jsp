@@ -33,6 +33,14 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="resource/js/bootstrap.min.js"></script>
 
+	<style>
+		.abbreviation
+		{
+			overflow:hidden;
+			text-overflow:ellipsis;
+			white-space:nowrap;
+		}
+	</style>
 </head>
 
 <body>
@@ -81,9 +89,9 @@
 	                    	<img class="img-responsive" src="http://placehold.it/700x400" alt="">
 		                </a>
 		                <h3>
-		                    <a href="#">${article.title }</a>
+		                    <a class="abbreviation" href="#">${article.title }</a>
 		                </h3>
-		                <p class="text-overflow">${article.content }</p>
+		                <p class="abbreviation">${article.content }</p>
 					</div>
 				</c:forEach>
 			</div>
@@ -96,9 +104,9 @@
 	                    	<img class="img-responsive" src="http://placehold.it/700x400" alt="">
 		                </a>
 		                <h3>
-		                    <a href="#">${article.title }</a>
+		                    <a class="abbreviation" href="#">${article.title }</a>
 		                </h3>
-		                <p class="text-overflow">${article.content }</p>
+		                <p class="abbreviation">${article.content }</p>
 					</div>
 				</c:forEach>
 			</div>

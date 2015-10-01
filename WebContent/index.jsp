@@ -66,8 +66,8 @@
 					<c:forEach var="article"
 						items="${requestScope.newProductPage.articleList }">
 						<div class="col-md-3 portfolio-item">
-							<a href="itemInfo?type=read&articleNo=${article.articleNo}"> <img class="img-responsive"
-								src="${article.photo}" alt="">
+							<a href="itemInfo?type=read&articleNo=${article.articleNo}">
+								<img class="img-responsive" src="${article.photo}" alt="">
 							</a>
 							<h4>
 								<a href="itemInfo?type=read&articleNo=${article.articleNo}">${article.title}</a>
@@ -78,7 +78,7 @@
 				</c:otherwise>
 			</c:choose>
 		</div>
-	<%-- 	<div class="row text-center">
+		<%-- 	<div class="row text-center">
 			<c:forEach var="i"
 				begin="${requestScope.getNewArticlePage.startPage}"
 				end="${requestScope.getNewArticlePage.endPage }">
@@ -91,7 +91,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<h1 class="page-header">
-					HOT! 등록상품 <small><a href="list">더보기</a></small>
+					HOT! 등록상품 <small><a href="list?view=hot">더보기</a></small>
 				</h1>
 			</div>
 		</div>
@@ -107,8 +107,8 @@
 					<c:forEach var="article"
 						items="${requestScope.hotProductPage.articleList }">
 						<div class="col-md-3 portfolio-item">
-							<a href="itemInfo?type=read&articleNo=${article.articleNo}"> <img class="img-responsive"
-								src="${article.photo}" alt="">
+							<a href="itemInfo?type=read&articleNo=${article.articleNo}">
+								<img class="img-responsive" src="${article.photo}" alt="">
 							</a>
 							<h4>
 								<a href="itemInfo?type=read&articleNo=${article.articleNo}">${article.title}</a>
@@ -119,7 +119,7 @@
 				</c:otherwise>
 			</c:choose>
 		</div>
-<%-- 		<div class="row text-center">
+		<%-- 		<div class="row text-center">
 			<c:forEach var="i"
 				begin="${requestScope.getHotProductPage.startPage}"
 				end="${requestScope.getHotProductPage.endPage }">
@@ -132,7 +132,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<h1 class="page-header">
-					프리미엄 등록상품 <small><a href="list">더 보기</a></small>
+					프리미엄 등록상품 <small><a href="list?view=premium">더 보기</a></small>
 				</h1>
 			</div>
 		</div>
@@ -148,8 +148,8 @@
 					<c:forEach var="article"
 						items="${requestScope.premiumProductPage.articleList }">
 						<div class="col-md-3 portfolio-item">
-							<a href="itemInfo?type=read&articleNo=${article.articleNo}"> <img class="img-responsive"
-								src="${article.photo}" alt="">
+							<a href="itemInfo?type=read&articleNo=${article.articleNo}">
+								<img class="img-responsive" src="${article.photo}" alt="">
 							</a>
 							<h4>
 								<a href="itemInfo?type=read&articleNo=${article.articleNo}">${article.title}</a>
@@ -160,7 +160,7 @@
 				</c:otherwise>
 			</c:choose>
 		</div>
-<%-- 		<div class="row text-center">
+		<%-- 		<div class="row text-center">
 			<c:forEach var="i"
 				begin="${requestScope.getPremiumProductPage.startPage}"
 				end="${requestScope.getPremiumProductPage.endPage }">

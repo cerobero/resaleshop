@@ -51,5 +51,22 @@ public class writeService {
 		return result;
 
 	}
+	public int comment(HttpServletRequest request,HttpSession session) throws ClassNotFoundException, SQLException{
+		int result = 0;
+		String userId = (String) session.getAttribute("id");
+		int articleNo = Integer.parseInt(request.getParameter("articleNo"));
+		String content = request.getParameter("content");
+		Article article = new Article();
+		article.setArticleNo(articleNo);
+		article.setComment_Date(new Date());
+		article.setUserId(userId);
+		article.setContent(content);
+		writeDao dao = writeDao.getInstance();
+		dao.startConnection();
+		dao.insertComment(article);
+		dao.closeConnection();
+		return result;
+
+	}
 
 }

@@ -64,6 +64,10 @@
 <script src="resource/bootstrap-wysiwyg-master/bootstrap-wysiwyg.js"></script>
 
 <script>
+	function test() {
+		$('#content').val(
+				document.getElementById("comments-insert-body").innerHTML);
+	}
 	$(function() {
 		function initToolbarBootstrapBindings() {
 			var fonts = [ 'Serif', 'Sans', 'Arial', 'Arial Black', 'Courier',
@@ -189,10 +193,10 @@ input[type=file] {
 
 				<!---
 		Please read this before copying the toolbar:
-	
-		* One of the best things about this widget is that it does not impose any styling on you, and that it allows you 
+
+		* One of the best things about this widget is that it does not impose any styling on you, and that it allows you
 		* to create a custom toolbar with the options and functions that are good for your particular use. This toolbar
-		* is just an example - don't just copy it and force yourself to use the demo styling. Create your own. Read 
+		* is just an example - don't just copy it and force yourself to use the demo styling. Create your own. Read
 		* this page to understand how to customise it:
 	    * https://github.com/mindmup/bootstrap-wysiwyg/blob/master/README.md#customising-
 		--->
@@ -227,6 +231,8 @@ input[type=file] {
 				</div>
 				<!-- 		</textarea> -->
 			</div>
+
+
 		</form>
 
 		<div class="control-group text-center">
@@ -257,20 +263,32 @@ input[type=file] {
 					</div>
 					<div class="comments-list">
 						<div class="media">
-							<p class="pull-right">
-								<small>5일 전</small>
-							</p>
-							<div class="media-body">
+							<!--                            <p class="pull-right"><small>5일 전</small></p> -->
+							<div class="media-body" contenteditable="true"
+								style="border: 1px solid gold; padding: 10px; width: 1150px; min-width: 1150px; overflow: hidden; height: 150px; overflow: auto; display: inline-block; min-height: 150px;">
 
-								<h4 class="media-heading user_name">
-									<b>조 건우</b>
-								</h4>
-								어으썸
+								<!--                               <h4 class="media-heading user_name"><b>조 건우</b></h4> -->
+								<!--                               어으썸 -->
 							</div>
+
 						</div>
 					</div>
-
-
+					<form action="itemInfo" method="post">
+						<div class="comments-insert">
+							<input type="hidden" id="commentcontent" name="commentcontent">
+							<input type="hidden" id="articleNo" name="articleNo" value="${requestScope.itemArticle.articleNo}">
+							<input type="hidden" id="content" name="content">
+							<input type="hidden" name="type" value="comment">
+							<%-- 					  <input type="hidden" id="userId" name="userId" value="${requestScope.itemArticle.userId}"> --%>
+							<p class="pull-right">
+								<button type="submit" onclick="test()">댓글등록</button>
+							</p>
+							<div class="comments-insert-body" id="comments-insert-body"
+								contenteditable="true"
+								style="border: 1px solid gold; padding: 10px; height: 50px">
+							</div>
+						</div>
+					</form>
 
 				</div>
 			</div>

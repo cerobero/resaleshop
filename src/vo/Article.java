@@ -15,6 +15,7 @@ public class Article
 	private int categoryId;
 	private String content;
 	private int soldout;
+	private Date comment_Date;
 
 	public Article()
 	{
@@ -36,6 +37,14 @@ public class Article
 		this.categoryId = categoryId;
 		this.content = content;
 		this.soldout = soldout;
+	}
+
+	public Date getComment_Date() {
+		return comment_Date;
+	}
+
+	public void setComment_Date(Date comment_Date) {
+		this.comment_Date = comment_Date;
 	}
 
 	public int getArticleNo()

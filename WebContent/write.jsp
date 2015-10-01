@@ -19,7 +19,7 @@ function test(){
 	}
 $('#target').submit(function() {
 // 	$('#content').val($('#editor').text());
-	
+
 	alert(document.getElementById("editor").innerHTML);
 });
 </script>
@@ -37,7 +37,7 @@ $('#target').submit(function() {
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-	
+
     <!-- jQuery -->
     <script src="resource/js/jquery.js"></script>
 
@@ -46,7 +46,7 @@ $('#target').submit(function() {
 
     <!--  WYSIWYG-Text-Editor -->
 	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-	
+
     <link rel="apple-touch-icon" href="//mindmup.s3.amazonaws.com/lib/img/apple-touch-icon.png" />
     <link rel="shortcut icon" href="http://mindmup.s3.amazonaws.com/lib/img/favicon.ico" >
     <link href="resource/bootstrap-wysiwyg-master/external/google-code-prettify/prettify.css" rel="stylesheet">
@@ -58,11 +58,11 @@ $('#target').submit(function() {
     <script src="resource/bootstrap-wysiwyg-master/external/google-code-prettify/prettify.js"></script>
 		<link href="resource/bootstrap-wysiwyg-master/index.css" rel="stylesheet">
     <script src="resource/bootstrap-wysiwyg-master/bootstrap-wysiwyg.js"></script>
-    
+
 	<script>
 	  $(function(){
 	    function initToolbarBootstrapBindings() {
-	      var fonts = ['Serif', 'Sans', 'Arial', 'Arial Black', 'Courier', 
+	      var fonts = ['Serif', 'Sans', 'Arial', 'Arial Black', 'Courier',
 	            'Courier New', 'Comic Sans MS', 'Helvetica', 'Impact', 'Lucida Grande', 'Lucida Sans', 'Tahoma', 'Times',
 	            'Times New Roman', 'Verdana'],
 	            fontTarget = $('[title=Font]').siblings('.dropdown-menu');
@@ -73,9 +73,9 @@ $('#target').submit(function() {
 	    	$('.dropdown-menu input').click(function() {return false;})
 			    .change(function () {$(this).parent('.dropdown-menu').siblings('.dropdown-toggle').dropdown('toggle');})
 	        .keydown('esc', function () {this.value='';$(this).change();});
-	
-	      $('[data-role=magic-overlay]').each(function () { 
-	        var overlay = $(this), target = $(overlay.data('target')); 
+
+	      $('[data-role=magic-overlay]').each(function () {
+	        var overlay = $(this), target = $(overlay.data('target'));
 	        overlay.css('opacity', 0).css('position', 'absolute').offset(target.offset()).width(target.outerWidth()).height(target.outerHeight());
 	      });
 	      if ("onwebkitspeechchange"  in document.createElement("input")) {
@@ -91,37 +91,37 @@ $('#target').submit(function() {
 			else {
 				console.log("error uploading file", reason, detail);
 			}
-			$('<div class="alert"> <button type="button" class="close" data-dismiss="alert">&times;</button>'+ 
+			$('<div class="alert"> <button type="button" class="close" data-dismiss="alert">&times;</button>'+
 			 '<strong>File upload error</strong> '+msg+' </div>').prependTo('#alerts');
 		};
-	    initToolbarBootstrapBindings();  
+	    initToolbarBootstrapBindings();
 		$('#editor').wysiwyg({ fileUploadError: showErrorAlert} );
 	    window.prettyPrint && prettyPrint();
 	  });
 	</script>
-	
+
 	<style>
 		.controls
 		{
 			width: 100%;
-			margin-top: 10px;			
+			margin-top: 10px;
 		}
-		
+
 		.control-label
 		{
 			width: 80px;
 		}
-		
+
 		.input-xlarge
 		{
 			width: 80%;
 		}
-		
+
 		.input-large
 		{
 			margin-right: 30px;
 		}
-		
+
 		input[type=file] {
 			display: inline;
 		}
@@ -149,10 +149,10 @@ $('#target').submit(function() {
 
 		<!---
 		Please read this before copying the toolbar:
-	
-		* One of the best things about this widget is that it does not impose any styling on you, and that it allows you 
+
+		* One of the best things about this widget is that it does not impose any styling on you, and that it allows you
 		* to create a custom toolbar with the options and functions that are good for your particular use. This toolbar
-		* is just an example - don't just copy it and force yourself to use the demo styling. Create your own. Read 
+		* is just an example - don't just copy it and force yourself to use the demo styling. Create your own. Read
 		* this page to understand how to customise it:
 	    * https://github.com/mindmup/bootstrap-wysiwyg/blob/master/README.md#customising-
 		--->
@@ -162,20 +162,20 @@ $('#target').submit(function() {
 				<input type="text" id="title" class="input-xlarge" name ="title">
 			</div>
 		</div>
-		
+
 		<div class="control-group">
 			<div class="controls">
 <!-- 				<label class="control-label" for="item">상품명</label> -->
 <!-- 				<input type="text" id="item" class="input-large"> -->
-				
+
 				<label class="control-label" for="price" style="width: 60px;">가격</label>
 				<input type="text" id="price" class="input-large" name="price">
-				
+
 				<label class="control-label" for="photo">사진등록</label>
 				<input type="file" id="item" class="btn btn-default btn-file" name="photo">
 			</div>
 		</div>
-		
+
 		<div class="control-group">
 			<div class="controls">
 				<label class="control-label">카테고리</label>
@@ -185,16 +185,16 @@ $('#target').submit(function() {
 					<input type="radio" value="4" name="categoryId">&nbsp;취미&nbsp;
 					<input type="radio" value="5" name="categoryId">&nbsp;의복&nbsp;
 			</div>
-			
+
 			<div class="controls">
 				<label class="control-label">프리미엄</label>
 					<input type="radio" value="1" name="premiume">&nbsp;사용&nbsp;
 					<input type="radio" value="0" name="premiume" checked>&nbsp;사용안함&nbsp;
 			</div>
 		</div>
-		
+
 		<br>
-		
+
 	    <div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor">
 	      <div class="btn-group">
 	        <a class="btn dropdown-toggle" data-toggle="dropdown" title="Font"><i class="icon-font"></i><b class="caret"></b></a>
@@ -227,7 +227,7 @@ $('#target').submit(function() {
 	        <a class="btn" data-edit="justifyright" title="Align Right (Ctrl/Cmd+R)"><i class="icon-align-right"></i></a>
 	        <a class="btn" data-edit="justifyfull" title="Justify (Ctrl/Cmd+J)"><i class="icon-align-justify"></i></a>
 	      </div>
-	      
+
 	      <div class="btn-group">
 	        <a class="btn" title="Insert picture (or just drag & drop)" id="pictureBtn"><i class="icon-picture"></i></a>
 	        <input type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" />
@@ -238,12 +238,12 @@ $('#target').submit(function() {
 	      </div>
 	      <input type="text" data-edit="inserttext" id="voiceBtn" x-webkit-speech="">
 	    </div>
-	
+
 	    <div id="editor">
 	    </div>
-	    
+
 	    <br>
-	    
+
 	    <div class="control-group text-center">
 	      <!-- Button -->
 	      <div class="controls">
@@ -253,11 +253,11 @@ $('#target').submit(function() {
 	        <button class="btn btn-success">취소</button>
 	      </div>
 	    </div>
-		</div>    
+		</div>
         </form>
-	  
+
         <hr>
-	  
+
         <!-- Footer -->
         <footer>
             <div class="row">
@@ -268,7 +268,7 @@ $('#target').submit(function() {
             <!-- /.row -->
         </footer>
 	</div>
-    
+
 </body>
 
 </html>

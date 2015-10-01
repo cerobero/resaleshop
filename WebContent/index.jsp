@@ -50,7 +50,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<h1 class="page-header">
-					최신 등록상품! <small><a href="category.jsp">더보기</a></small>
+					최신 등록상품! <small><a href="list">더보기</a></small>
 				</h1>
 			</div>
 		</div>
@@ -82,7 +82,7 @@
 			<c:forEach var="i"
 				begin="${requestScope.getNewArticlePage.startPage}"
 				end="${requestScope.getNewArticlePage.endPage }">
-				<a href="index?type=list&new_page=${i }">[${i }]</a>
+				<a href="index?type=index&new_page=${i }">[${i }]</a>
 			</c:forEach>
 		</div>
 		<!-- /.row -->
@@ -91,7 +91,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<h1 class="page-header">
-					HOT! 등록상품 <small><a href="category.jsp">더보기</a></small>
+					HOT! 등록상품 <small><a href="list">더보기</a></small>
 				</h1>
 			</div>
 		</div>
@@ -132,7 +132,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<h1 class="page-header">
-					프리미엄 등록상품 <small><a href="category.jsp">더 보기</a></small>
+					프리미엄 등록상품 <small><a href="list">더 보기</a></small>
 				</h1>
 			</div>
 		</div>

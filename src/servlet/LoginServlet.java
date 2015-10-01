@@ -26,7 +26,7 @@ public class LoginServlet extends HttpServlet{
 		String cmd=request.getParameter("cmd");
 		LoginService service = LoginService.getInstance();
 		
-		if(cmd.equals("loginForm")){
+		if(cmd == null || cmd.equals("loginForm")){
 			response.sendRedirect("login.jsp");
 		}else if(cmd.equals("login")){
 			service.login(request, response);

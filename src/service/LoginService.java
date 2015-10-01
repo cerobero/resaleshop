@@ -34,7 +34,7 @@ public class LoginService {
 			HttpSession session=request.getSession();
 			session.setAttribute("id", id);
 			session.setAttribute("pwd", pwd);
-			response.sendRedirect("index.jsp");
+			response.sendRedirect("index");
 
 		}else if(n==0){
 			String msg="아이디 또는 비밀번호가 틀립니다";
@@ -53,7 +53,7 @@ public class LoginService {
 
 		HttpSession session=request.getSession();
 		session.invalidate();
-		response.sendRedirect("index.jsp");
+		response.sendRedirect("index");
 	}
 
 	public void myPage(HttpServletRequest request, HttpServletResponse response)

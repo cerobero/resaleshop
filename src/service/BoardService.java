@@ -19,17 +19,17 @@ public class BoardService {
 		
 		int articleNo = Integer.parseInt(m_request.getParameter("articleNo"));
 		String userPw = m_request.getParameter("userPw");
+		System.out.println(userPw);
 		
 		String userId = (String) session.getAttribute("id");
-		String originalPw = (String) session.getAttribute("pwd");
 		System.out.println("보드 서비스 userId: "+userId);
 //		User user = dao.selectUserInfo(userId); //사용자비번 체크용
 //		String originalPw = user.getUserPw();
 
-		if(m_request.getParameter("articleNo")!=null && originalPw.equals(userPw)){
+		if(m_request.getParameter("articleNo")!=null){
 			String title = m_request.getParameter("title");
 			int price = Integer.parseInt(m_request.getParameter("price"));
-			File file = m_request.getFile("photo"); // upload
+//			File file = m_request.getFile("photo"); // upload
 			int categoryId = Integer.parseInt(m_request.getParameter("categoryId"));
 			int premiume = Integer.parseInt(m_request.getParameter("premiume"));
 			String content = m_request.getParameter("content");
@@ -40,10 +40,10 @@ public class BoardService {
 
 			ItemArticle article = new ItemArticle();
 			article.setArticleNo(articleNo);
-			article.setUserId(userId);
+//			article.setUserId(userId);
 			article.setTitle(title);
 			article.setPrice(price);
-			article.setPhoto(file.getAbsolutePath());
+//			article.setPhoto(file.getAbsolutePath());
 			article.setCategoryId(categoryId);
 			article.setPremiume(premiume);
 			article.setContent(content);
@@ -52,10 +52,7 @@ public class BoardService {
 			article.setSoldout(soldout);
 		
 			result = dao.updateArticle(article);
-		}else{
-			dao.closeConnection();
 		}
-
 		dao.closeConnection();
 		return result;
 	}

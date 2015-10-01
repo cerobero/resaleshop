@@ -49,7 +49,7 @@ public class RegisterServlet extends HttpServlet
 		{
 			forwardPath = "redirect.jsp";
 			request.setAttribute("errMsg", "이미 로그인중입니다. 로그인 후에 다시 시도해주세요.");
-			request.setAttribute("location", "index.jsp");
+			request.setAttribute("location", "index");
 		}
 		else if (requestId != null && requestId.length() > 0)
 		{

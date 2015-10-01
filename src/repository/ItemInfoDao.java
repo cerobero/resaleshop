@@ -189,21 +189,18 @@ public class ItemInfoDao {
 	public int updateArticle(ItemArticle article){
 			PreparedStatement pstmt = null;
 			int result = 0;
-			String sql = "update article set user_id=?, title=?, price=?, premiume=?, "
-						+" photo=?, category_id=?, content=?, soldout=? where article_no=? ";
+			String sql = "update article set title=?, price=?, premiume=?, "
+						+"category_id=?, content=?, soldout=? where article_no=? ";
 			try {
 				pstmt = con.prepareStatement(sql);
 				
-				pstmt.setString(1, article.getUserId());
-				pstmt.setString(2, article.getTitle());
-				pstmt.setInt(3, article.getPrice());
-				pstmt.setInt(4, article.getPremiume());
-				pstmt.setString(5, article.getPhoto());
-				pstmt.setInt(6, article.getCategoryId());
-				pstmt.setString(7, article.getContent());
-				pstmt.setInt(8, article.getSoldout());
-				pstmt.setInt(9, article.getArticleNo());
-				
+				pstmt.setString(1, article.getTitle());
+				pstmt.setInt(2, article.getPrice());
+				pstmt.setInt(3, article.getPremiume());
+				pstmt.setInt(4, article.getCategoryId());
+				pstmt.setString(5, article.getContent());
+				pstmt.setInt(6, article.getSoldout());
+				pstmt.setInt(7, article.getArticleNo());
 				result = pstmt.executeUpdate();
 				
 			} catch (SQLException e) {

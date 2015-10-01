@@ -38,16 +38,12 @@
 // // 	 		alert(document.getElementById("editor").innerHTML);
 // // 	 	});
 // 	})
+	if (${sessionScope.id != requestScope.itemArticle.userId }) {
+		alert("ID가 틀립니다.");
+		history.back();
+	}
 </script>
     <title>중고(딩)나라</title>
-<%
-//임시 아이디 강제 저장
-String userId = "iii";
-session.setAttribute("id", userId);
-
-String userPw = "1234";
-session.setAttribute("pwd", userPw);
-%>
     <!-- Bootstrap Core CSS -->
     <link href="resource/css/bootstrap.min.css" rel="stylesheet">
 
@@ -136,6 +132,29 @@ session.setAttribute("pwd", userPw);
 	     })
 	    
 	  });
+	  
+	  $(document).ready(function() {
+			var categoryId = document.getElementsByName("categoryId");
+			for (var i = 0; i < categoryId.length; i++) {
+				if (categoryId[i].value == "${requestScope.itemArticle.categoryId }") {
+					categoryId[i].setAttribute("checked", "true");
+				}
+			}
+			
+			var premiume = document.getElementsByName("premiume");
+			for (var i = 0; i < premiume.length; i++) {
+				if (premiume[i].value == "${requestScope.itemArticle.premiume }") {
+					premiume[i].setAttribute("checked", "true");
+				}
+			}
+			
+			var soldout = document.getElementsByName("soldout");
+			for (var i = 0; i < soldout.length; i++) {
+				if (soldout[i].value == "${requestScope.itemArticle.soldout }") {
+					soldout[i].setAttribute("checked", "true");
+				}
+			}
+		});
 	</script>
 	
 	<style>
@@ -198,21 +217,18 @@ session.setAttribute("pwd", userPw);
 		
 		<div class="control-group">
 			<div class="controls">
-				<label class="control-label" for="password">비밀번호</label>
-				<input type="password" id="userPw" class="input-large" name="userPw">
-				
 				<label class="control-label" for="price" style="width: 60px;">가격</label>
 				<input type="text" id="price" class="input-large" name="price" value="${requestScope.itemArticle.price}">
 				
-				<label class="control-label" for="photo">사진등록</label>
-				<input type="file" id="item" class="btn btn-default btn-file" name="photo" value="">
+<!-- 				<label class="control-label" for="photo">사진등록</label> -->
+<%-- 				<input type="file" id="item" class="btn btn-default btn-file" name="photo" value="${requestScope.itemArticle.photo }"> --%>
 			</div>
 		</div>
 		
 		<div class="control-group">
 			<div class="controls">
 				<label class="control-label">카테고리</label>
-					<input type="radio" value="1" name="categoryId" checked>&nbsp;It기기&nbsp;
+					<input type="radio" value="1" name="categoryId">&nbsp;It기기&nbsp;
 					<input type="radio" value="2" name="categoryId">&nbsp;가전제품&nbsp;
 					<input type="radio" value="3" name="categoryId">&nbsp;중고차&nbsp;
 					<input type="radio" value="4" name="categoryId">&nbsp;취미&nbsp;
@@ -221,8 +237,8 @@ session.setAttribute("pwd", userPw);
 			
 			<div class="controls">
 				<label class="control-label">프리미엄</label>
-					<input type="radio" value="1" name="premiume">&nbsp;사용&nbsp;
-					<input type="radio" value="0" name="premiume">&nbsp;사용안함&nbsp;
+				<input type="radio" value="1" name="premiume">&nbsp;사용&nbsp;
+				<input type="radio" value="0" name="premiume">&nbsp;사용안함&nbsp;
 			</div>
 			
 			<div class="controls">
@@ -279,8 +295,6 @@ session.setAttribute("pwd", userPw);
 	    </div>
 	
 	    <div id="editor" >
-			<img src="upload/balloon.png"><br>
-	    	${requestScope.itemArticle.content}
 	    </div>
 	    
 	    <br>

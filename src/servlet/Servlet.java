@@ -1,5 +1,6 @@
 package servlet;
 
+import java.io.File;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -49,6 +50,15 @@ public class Servlet extends HttpServlet {
 		System.out.println("Post 서블릿");
 		request.setCharacterEncoding("euc-kr");
 		String folderPath=request.getServletContext().getRealPath("/upload");
+		String savePath = folderPath.replace('\\', '/');
+		File dir = new File(savePath);
+		//디렉토리가 없으면
+		if(!dir.isDirectory())
+		{
+			//		          System.out.println("디렉토리 없음");
+			//디렉토리 생성
+			dir.mkdirs();
+		}
 		MultipartRequest mr = new MultipartRequest(request, folderPath, 1024 * 1024 * 5, "euc-kr",
 				new DefaultFileRenamePolicy());
 		String type = mr.getParameter("type");
@@ -61,6 +71,8 @@ public class Servlet extends HttpServlet {
 				System.out.println("update 서블릿 result"+result);
 				request.setAttribute("result", result);
 				viewPath = "update.jsp";
+				response.sendRedirect("index");
+				return;
 			}
 		} catch (Exception ex) {
 			ex.printStackTrace();

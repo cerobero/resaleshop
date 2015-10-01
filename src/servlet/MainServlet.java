@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import service.MainMenuService;
 import vo.ArticlePage;
 
-@WebServlet(urlPatterns = "/main")
+@WebServlet(urlPatterns = "/index")
 public class MainServlet extends HttpServlet {
 
 	@SuppressWarnings("null")

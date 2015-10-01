@@ -66,11 +66,11 @@
 					<c:forEach var="article"
 						items="${requestScope.newProductPage.articleList }">
 						<div class="col-md-3 portfolio-item">
-							<a href="read.jsp"> <img class="img-responsive"
+							<a href="itemInfo?type=read&articleNo=${article.articleNo}"> <img class="img-responsive"
 								src="${article.photo}" alt="">
 							</a>
 							<h4>
-								<a href="read.jsp">${article.title}</a>
+								<a href="itemInfo?type=read&articleNo=${article.articleNo}">${article.title}</a>
 							</h4>
 							<p>${article.content}</p>
 						</div>
@@ -107,11 +107,11 @@
 					<c:forEach var="article"
 						items="${requestScope.hotProductPage.articleList }">
 						<div class="col-md-3 portfolio-item">
-							<a href="read.jsp"> <img class="img-responsive"
+							<a href="itemInfo?type=read&articleNo=${article.articleNo}"> <img class="img-responsive"
 								src="${article.photo}" alt="">
 							</a>
 							<h4>
-								<a href="read.jsp">${article.title}</a>
+								<a href="itemInfo?type=read&articleNo=${article.articleNo}">${article.title}</a>
 							</h4>
 							<p>${article.content}</p>
 						</div>
@@ -148,11 +148,11 @@
 					<c:forEach var="article"
 						items="${requestScope.premiumProductPage.articleList }">
 						<div class="col-md-3 portfolio-item">
-							<a href="read.jsp"> <img class="img-responsive"
+							<a href="itemInfo?type=read&articleNo=${article.articleNo}"> <img class="img-responsive"
 								src="${article.photo}" alt="">
 							</a>
 							<h4>
-								<a href="read.jsp">${article.title}</a>
+								<a href="itemInfo?type=read&articleNo=${article.articleNo}">${article.title}</a>
 							</h4>
 							<p>${article.content}</p>
 						</div>

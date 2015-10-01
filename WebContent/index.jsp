@@ -57,69 +57,79 @@
 		<!-- /.row -->
 
 		<!-- Projects Row -->
-		<div class="row">
-			<c:choose>
-				<c:when test="${empty requestScope.newProductPage.articleList }">
-					<h3>게시물 없음</h3>
-				</c:when>
-				<c:otherwise>
-					<c:forEach var="article"
-						items="${requestScope.newProductPage.articleList }">
-						<div class="col-md-3 portfolio-item">
-							<a href="itemInfo?type=read&articleNo=${article.articleNo}">
-								<img class="img-responsive" src="${article.photo}" alt="">
+			<c:if test="${requestScope.newProductPage.articleList.size()>0} ">
+			<div class="row">
+				<c:forEach var="article" items="${requestScope.newProductPage.articleList }" begin="0" end="${requestScope.newProductPage.articleList.size()> 4 ? 4 - 1 : requestScope.hotProductPage.articleList.size() }">
+					<div class="col-md-3 portfolio-item">
+							<a href="itemInfo?type=read&articleNo=${article.articleNo}"> <img class="img-responsive"
+								src="${article.photo}" alt="">
 							</a>
 							<h4>
 								<a href="itemInfo?type=read&articleNo=${article.articleNo}">${article.title}</a>
 							</h4>
 							<p>${article.content}</p>
 						</div>
-					</c:forEach>
-				</c:otherwise>
-			</c:choose>
-		</div>
-		<%-- 	<div class="row text-center">
-			<c:forEach var="i"
-				begin="${requestScope.getNewArticlePage.startPage}"
-				end="${requestScope.getNewArticlePage.endPage }">
-				<a href="index?type=index&new_page=${i }">[${i }]</a>
-			</c:forEach>
-		</div> --%>
+				</c:forEach>
+			</div>
+		</c:if>
+		<c:if test="${requestScope.newProductPage.articleList.size() > 4 }">
+			<div class="row">
+				<c:forEach var="article" items="${requestScope.newProductPage.articleList }" begin="${requestScope.newProductPage.articleList.size() - 8}" end="${requestScope.newProductPage.articleList.size()  }">
+					<div class="col-md-3 portfolio-item">
+							<a href="itemInfo?type=read&articleNo=${article.articleNo}"> <img class="img-responsive"
+								src="${article.photo}" alt="">
+							</a>
+							<h4>
+								<a href="itemInfo?type=read&articleNo=${article.articleNo}">${article.title}</a>
+							</h4>
+							<p>${article.content}</p>
+						</div>
+				</c:forEach>
+			</div>
+		</c:if>
+        
 		<!-- /.row -->
-
-		<!-- Page Header -->
 		<div class="row">
 			<div class="col-lg-12">
 				<h1 class="page-header">
-					HOT! 등록상품 <small><a href="list?view=hot">더보기</a></small>
+				Hot! 등록상품 <small><a href="list">더보기</a></small>
 				</h1>
 			</div>
 		</div>
-		<!-- /.row -->
 
 		<!-- Projects Row -->
-		<div class="row">
-			<c:choose>
-				<c:when test="${empty requestScope.hotProductPage.articleList }">
-					<h3>게시물 없음</h3>
-				</c:when>
-				<c:otherwise>
-					<c:forEach var="article"
-						items="${requestScope.hotProductPage.articleList }">
-						<div class="col-md-3 portfolio-item">
-							<a href="itemInfo?type=read&articleNo=${article.articleNo}">
-								<img class="img-responsive" src="${article.photo}" alt="">
+				<c:if test="${requestScope.hotProductPage.articleList.size()> 0 }">
+			<div class="row">
+				<c:forEach var="article" items="${requestScope.hotProductPage.articleList }" begin="0" end="${requestScope.hotProductPage.articleList.size()> 4 ? 4 - 1 : requestScope.hotProductPage.articleList.size() }">
+					<div class="col-md-3 portfolio-item">
+							<a href="itemInfo?type=read&articleNo=${article.articleNo}"> <img class="img-responsive"
+								src="${article.photo}" alt="">
 							</a>
 							<h4>
 								<a href="itemInfo?type=read&articleNo=${article.articleNo}">${article.title}</a>
 							</h4>
 							<p>${article.content}</p>
 						</div>
-					</c:forEach>
-				</c:otherwise>
-			</c:choose>
-		</div>
-		<%-- 		<div class="row text-center">
+				</c:forEach>
+			</div>
+		</c:if>
+		<c:if test="${requestScope.hotProductPage.articleList.size() > 4 }">
+			<div class="row">
+				<c:forEach var="article" items="${requestScope.hotProductPage.articleList }" begin="${requestScope.hotProductPage.articleList.size() - 8}" end="${requestScope.hotProductPage.articleList.size() }">
+					<div class="col-md-3 portfolio-item">
+							<a href="itemInfo?type=read&articleNo=${article.articleNo}"> <img class="img-responsive"
+								src="${article.photo}" alt="">
+							</a>
+							<h4>
+								<a href="itemInfo?type=read&articleNo=${article.articleNo}">${article.title}</a>
+							</h4>
+							<p>${article.content}</p>
+						</div>
+				</c:forEach>
+			</div>
+		</c:if>
+        
+<%-- 		<div class="row text-center">
 			<c:forEach var="i"
 				begin="${requestScope.getHotProductPage.startPage}"
 				end="${requestScope.getHotProductPage.endPage }">
@@ -132,35 +142,44 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<h1 class="page-header">
-					프리미엄 등록상품 <small><a href="list?view=premium">더 보기</a></small>
+					프리미엄 등록상품 <small><a href="list">더 보기</a></small>
 				</h1>
 			</div>
 		</div>
 		<!-- /.row -->
 
 		<!-- Projects Row -->
-		<div class="row">
-			<c:choose>
-				<c:when test="${empty requestScope.premiumProductPage.articleList }">
-					<h3>게시물 없음</h3>
-				</c:when>
-				<c:otherwise>
-					<c:forEach var="article"
-						items="${requestScope.premiumProductPage.articleList }">
-						<div class="col-md-3 portfolio-item">
-							<a href="itemInfo?type=read&articleNo=${article.articleNo}">
-								<img class="img-responsive" src="${article.photo}" alt="">
+			<c:if test="${requestScope.premiumProductPage.articleList.size()> 0 }">
+			<div class="row">
+				<c:forEach var="article" items="${requestScope.premiumProductPage.articleList }" begin="0" end="${requestScope.premiumProductPage.articleList.size()> 4 ? 4 - 1 : requestScope.premiumProductPage.articleList.size() }">
+					<div class="col-md-3 portfolio-item">
+							<a href="itemInfo?type=read&articleNo=${article.articleNo}"> <img class="img-responsive"
+								src="${article.photo}" alt="">
 							</a>
 							<h4>
 								<a href="itemInfo?type=read&articleNo=${article.articleNo}">${article.title}</a>
 							</h4>
 							<p>${article.content}</p>
 						</div>
-					</c:forEach>
-				</c:otherwise>
-			</c:choose>
-		</div>
-		<%-- 		<div class="row text-center">
+				</c:forEach>
+			</div>
+		</c:if>
+		<c:if test="${requestScope.premiumProductPage.articleList.size() > 4 }">
+			<div class="row">
+				<c:forEach var="article" items="${requestScope.premiumProductPage.articleList }" begin="${requestScope.premiumProductPage.articleList.size() - 8}" end="${requestScope.premiumProductPage.articleList.size()  }">
+					<div class="col-md-3 portfolio-item">
+							<a href="itemInfo?type=read&articleNo=${article.articleNo}"> <img class="img-responsive"
+								src="${article.photo}" alt="">
+							</a>
+							<h4>
+								<a href="itemInfo?type=read&articleNo=${article.articleNo}">${article.title}</a>
+							</h4>
+							<p>${article.content}</p>
+						</div>
+				</c:forEach>
+			</div>
+		</c:if>
+<%-- 		<div class="row text-center">
 			<c:forEach var="i"
 				begin="${requestScope.getPremiumProductPage.startPage}"
 				end="${requestScope.getPremiumProductPage.endPage }">

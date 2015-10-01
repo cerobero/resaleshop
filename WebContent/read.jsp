@@ -275,7 +275,10 @@ input[type=file] {
 					</div>
 					<form action="itemInfo" method="post">
 						<div class="comments-insert">
-							<input type="hidden" id="commentcontent" name="commentcontent">
+							<input type="hidden" id="categoryId" name="cateogryId" value="${param.categoryId }">
+							<input type="hidden" id="page" name="page" value="${param.page}">
+							<input type="hidden" id="search" name="search" value="${param.search}">
+ 							<input type="hidden" id="commentcontent" name="commentcontent">
 							<input type="hidden" id="articleNo" name="articleNo" value="${requestScope.itemArticle.articleNo}">
 							<input type="hidden" id="content" name="content">
 							<input type="hidden" name="type" value="comment">

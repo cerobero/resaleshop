@@ -67,8 +67,14 @@ public class ItemInfoServlet extends HttpServlet{
 					 HttpSession session = request.getSession();
 					 int result = writeservice.comment(request, session);
 					 request.setAttribute("result", result);
+					 String articleNo=request.getParameter("articleNo");
+					 String categoryId=request.getParameter("categoryId");
+					 String page=request.getParameter("page");
+					 String search = request.getParameter("search");
+
 //					 path = "read.jsp?itemInfo=read";
-					 path = String.format("itemInfo?type=read&articleNo=%s&categoryId=%s&page=%s&search=%s", request.getParameterValues("articleNo") , request.getParameter("categoryId"), request.getParameter("page"), request.getParameter("page"), request.getParameter("search"));
+					 path = String.format("itemInfo?type=read&articleNo="+articleNo+"&categoryId="+categoryId+
+							 "&page="+page+"&search="+search, request.getParameterValues("articleNo") , request.getParameter("categoryId"), request.getParameter("page"), request.getParameter("page"), request.getParameter("search"));
 					 response.sendRedirect(path);
 					 return;
 				}

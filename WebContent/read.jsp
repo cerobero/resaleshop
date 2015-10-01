@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html lang="en">
 
 <head>
@@ -126,8 +127,15 @@
 	<form class="form-group" action="" method="POST">
 	  <div class="hero-unit">
 		<div id="legend" class="page-header">
-		  <h1 class="pull-left">[카테고리] 제목</h1>
-		  <h1 class="pull-right"><small>조회수, 등록일</small></h1>
+			<c:choose>
+				<c:when test="${requestScope.itemArticle.premiume==1}">
+		  			<h1 class="pull-left">[${requestScope.itemArticle.categoryName}] ${requestScope.itemArticle.title}&nbsp;&nbsp;프리미엄 상품</h1>
+				</c:when>
+				<c:when test="${requestScope.itemArticle.premiume==0}">
+		 			 <h1 class="pull-left">[${requestScope.itemArticle.categoryName}] ${requestScope.itemArticle.title}</h1>
+				</c:when>
+			</c:choose>
+		  <h1 class="pull-right"><small>조회수 ${requestScope.itemArticle.readCount}&nbsp;| 등록일 ${requestScope.itemArticle.postingDate}</small></h1>
 		  <div class="clearfix"></div>
 		</div>
 
@@ -141,29 +149,43 @@
 	    * https://github.com/mindmup/bootstrap-wysiwyg/blob/master/README.md#customising-
 		--->
 		<div class="control-group">
-			<div class="controls">
-				<label class="control-label" for="item">상품명</label>
-				<input type="text" id="item" class="input-large" disabled>
-				
+			<div class="controls" >
 				<label class="control-label" for="price" style="width: 60px;">가격</label>
-				<input type="text" id="price" class="input-large" disabled>
+				<input type="text" id="price" class="input-large" disabled value="${requestScope.itemArticle.price}">
 
 				<label class="control-label" for="userid">아이디</label>
-				<input type="text" id="item" class="input-large" disabled>
+				<input type="text" id="item" class="input-large" disabled value="${requestScope.itemArticle.userId}">
+				
+				<label class="control-label" for="userid">판매여부</label>
+				<c:choose>
+					<c:when test="${requestScope.itemArticle.soldout == 1}">
+						<input type="text" id="item" class="input-large" disabled value="판매완료">
+					</c:when>
+					<c:when test="${requestScope.itemArticle.soldout == 0}">
+						<input type="text" id="item" class="input-large" disabled value="판매중">
+					</c:when>
+				</c:choose>
 			</div>
 		</div>
 		
 		<br>
 		
-		<textarea class="form-control" rows="10"></textarea>
+<!-- 		<textarea class="form-control" rows="10"> -->
+			<div>
+<!-- 			<img src="upload/balloon.png"><br> -->
+			${requestScope.itemArticle.content}
+			</div>
+<!-- 		</textarea> -->
 		</div>    
         </form>
 	    
 	    <div class="control-group text-center">
 	      <!-- Button -->
-	      <div class="controls">
-	        <button class="btn btn-success">구매</button>
-	        <button class="btn btn-success">글 목록</button>
+	      <div class="controls" align="right">
+	        <a href=""><button class="btn btn-success">구매</button></a>
+	        <a href="list?categoryId=${param.categoryId }&page=${param.page }&search=${param.search }"><button class="btn btn-success">글 목록</button></a>
+	        <a href="board?type=updateForm&articleNo=${requestScope.itemArticle.articleNo}"><button class="btn btn-success">글 수정</button></a>
+	        <a href="itemInfo?type=deleteForm&articleNo=${requestScope.itemArticle.articleNo}"><button class="btn btn-success">글 삭제</button></a>
 	      </div>
 	    </div>
         

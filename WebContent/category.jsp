@@ -89,7 +89,7 @@
 	                    	<img class="img-responsive" src="${article.photo }" alt="">
 		                </a>
 		                <h3>
-		                    <a class="abbreviation" href="#">${article.title }</a>
+		                    <a class="abbreviation" href="itemInfo?type=read&articleNo=${article.articleNo }&categoryId=${param.categoryId }&page=${param.page }&search=${param.search }">${article.title }</a>
 		                </h3>
 		                <p class="abbreviation">${article.content }</p>
 					</div>
@@ -104,7 +104,7 @@
 	                    	<img class="img-responsive" src="${article.photo }" alt="">
 		                </a>
 		                <h3>
-		                    <a class="abbreviation" href="#">${article.title }</a>
+		                    <a class="abbreviation" href="itemInfo?type=read&articleNo=${article.articleNo }&categoryId=${param.categoryId }&page=${param.page }&search=${param.search }">${article.title }</a>
 		                </h3>
 		                <p class="abbreviation">${article.content }</p>
 					</div>

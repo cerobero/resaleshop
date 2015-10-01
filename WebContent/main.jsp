@@ -41,7 +41,7 @@
 	<table style="margin: 21px;">
 		<tr>
 			<!-- 머리글 : 메뉴 삽입공간 -->
-			<td width=1500 height=156><%@ include file="nav.jspf" %></td>
+			<td width=1500 height=156><%@ include file="nav.jsp" %></td>
 		</tr>
 
 		<tr>

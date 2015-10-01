@@ -35,7 +35,7 @@
 </head>
 
 <body>
-	<%@ include file="nav.jspf" %><br>
+	<%@ include file="nav.jsp" %><br>
     
 	<c:if test="${empty sessionScope.id }">
 	<script type="text/javascript">

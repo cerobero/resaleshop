@@ -25,7 +25,7 @@
 </head>
 
 <body>
-	<%@ include file="nav.jspf" %>
+	<%@ include file="nav.jsp" %>
     <br><br><br>
     <!--  Register form -->
     <div class="container">

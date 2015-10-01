@@ -145,7 +145,7 @@ session.setAttribute("pwd", userPw);
 
 <body>
 
-	<%@ include file="nav.jspf" %>
+	<%@ include file="nav.jsp" %>
 
     <br>
     

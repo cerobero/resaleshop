@@ -131,7 +131,7 @@ $('#target').submit(function() {
 
 <body>
 
-	<%@ include file="nav.jspf" %>
+	<%@ include file="nav.jsp" %>
 
     <br>
     <c:if test="${empty sessionScope.id }">

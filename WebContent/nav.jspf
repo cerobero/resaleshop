@@ -10,7 +10,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.jsp">중고(딩)나라</a>
+                <a class="navbar-brand" href="index">중고(딩)나라</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -28,16 +28,16 @@
 				</form>
 				<ul class="nav navbar-nav navbar-right">
 			        <li>
-			        	<a href="login.jsp">로그인</a>
+			        	<a href="login">로그인</a>
 			        </li>
 			        <li>
 			        	<a href="login?cmd=logout">로그아웃</a>
 			        </li>
 			        <li>
-			        	<a href="register.jsp">회원가입</a>
+			        	<a href="register">회원가입</a>
 			        </li>
 			        <li>
-			        	<a href="write.jsp">판매등록</a>
+			        	<a href="write">판매등록</a>
 			        </li>
 			        <li>
 			        	<a href="login?cmd=mypage">마이페이지</a>

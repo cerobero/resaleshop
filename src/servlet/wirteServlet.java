@@ -20,6 +20,14 @@ import vo.Article;
 
 @WebServlet(urlPatterns = "/write")
 public class wirteServlet extends HttpServlet {
+	
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException	{
+		String viewPath = "write.jsp";
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath);
+		dispatcher.forward(request, response);
+	}
 
 
 	@Override

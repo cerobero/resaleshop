@@ -89,7 +89,7 @@
 			<td align="center">
 			<div class="btn-group-vertical">
 				<button type="button" class="btn btn-default" onClick="location.href='login?cmd=soldout&articleNo=${article.articleNo}'"><span class="glyphicon glyphicon-ok"></span> 완료</button>
-				<button type="button" class="btn btn-default" onClick="location.href='itemInfo?type=updateForm&articleNo=${article.articleNo}'"><span class="glyphicon glyphicon-pencil"></span> 수정</button>
+				<button type="button" class="btn btn-default" onClick="location.href='board?type=updateForm&articleNo=${article.articleNo}'"><span class="glyphicon glyphicon-pencil"></span> 수정</button>
 				<button type="button" class="btn btn-default" onClick="location.href='login?cmd=del&articleNo=${article.articleNo}'"><span class="glyphicon glyphicon-trash"></span> 삭제</button>
 			</div>
 			</td>

@@ -78,13 +78,13 @@
 				</c:otherwise>
 			</c:choose>
 		</div>
-		<div class="row text-center">
+	<%-- 	<div class="row text-center">
 			<c:forEach var="i"
 				begin="${requestScope.getNewArticlePage.startPage}"
 				end="${requestScope.getNewArticlePage.endPage }">
 				<a href="index?type=index&new_page=${i }">[${i }]</a>
 			</c:forEach>
-		</div>
+		</div> --%>
 		<!-- /.row -->
 
 		<!-- Page Header -->
@@ -119,13 +119,13 @@
 				</c:otherwise>
 			</c:choose>
 		</div>
-		<div class="row text-center">
+<%-- 		<div class="row text-center">
 			<c:forEach var="i"
 				begin="${requestScope.getHotProductPage.startPage}"
 				end="${requestScope.getHotProductPage.endPage }">
 				<a href="index?type=index&hot_page=${i }">[${i }]</a>
 			</c:forEach>
-		</div>
+		</div> --%>
 		<!-- /.row -->
 
 		<!-- Page Header -->
@@ -160,13 +160,13 @@
 				</c:otherwise>
 			</c:choose>
 		</div>
-		<div class="row text-center">
+<%-- 		<div class="row text-center">
 			<c:forEach var="i"
 				begin="${requestScope.getPremiumProductPage.startPage}"
 				end="${requestScope.getPremiumProductPage.endPage }">
 				<a href="index?type=list&premium_page=${i }">[${i }]</a>
 			</c:forEach>
-		</div>
+		</div> --%>
 		<!-- /.row -->
 
 		<hr>

@@ -30,7 +30,12 @@ public class MainMenuService {
 		mainMenuDao dao =mainMenuDao.getInstance();
 		Connection con = ConnectionDao.startConnection();
 		dao.setConnection(con);
-
+		if(con!=null){
+			System.out.println("con:complete");
+		}else{
+			System.out.println("con:null");
+		}
+		
 		int totalArticleCount = dao.MainSelectArticleCount();
 
 		if (totalArticleCount == 0) {
@@ -55,7 +60,7 @@ public class MainMenuService {
 		if (endPage > totalPageCount) {
 			endPage = totalPageCount;
 		}
-
+		System.out.println(String.format("startPage = %d, endPage = %d, requestPage = %d,totalPage = %d", startPage, endPage, requestPage,totalPageCount));
 		ConnectionDao.closeConnection(con);
 		return new ArticlePage(articleList, requestPage, totalPageCount, startPage, endPage);
 	}
@@ -95,7 +100,7 @@ public class MainMenuService {
 		if (endPage > totalPageCount) {
 			endPage = totalPageCount;
 		}
-
+		System.out.println(String.format("startPage = %d, endPage = %d, requestPage = %d, totalPage = %d", startPage, endPage, requestPage,totalPageCount));
 		ConnectionDao.closeConnection(con);
 		return new ArticlePage(articleList, requestPage, totalPageCount, startPage, endPage);
 	}
@@ -135,7 +140,7 @@ public class MainMenuService {
 		if (endPage > totalPageCount) {
 			endPage = totalPageCount;
 		}
-
+		System.out.println(String.format("startPage = %d, endPage = %d, requestPage = %d, totalPage = %d", startPage, endPage, requestPage,totalPageCount));
 		ConnectionDao.closeConnection(con);
 		return new ArticlePage(articleList, requestPage, totalPageCount, startPage, endPage);
 	}

@@ -199,6 +199,7 @@ public class mainMenuDao {
 			rs = stmt.executeQuery(sql);
 			rs.next();
 			result = rs.getInt(1);
+			System.out.println("글의 총수"+result);
 		} catch (SQLException e) {
 			System.out.println("Main Select ArticleCount dao에러");
 			e.printStackTrace();

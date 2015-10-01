@@ -1,5 +1,6 @@
 package servlet;
 
+import java.io.File;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -19,13 +20,22 @@ import vo.Article;
 
 @WebServlet(urlPatterns = "/write")
 public class wirteServlet extends HttpServlet {
-	
+
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		String forderPath=request.getServletContext().getRealPath("/upload");
+		String savePath = forderPath.replace('\\', '/');
+		 File dir = new File(savePath);
+		         //디렉토리가 없으면
+		         if(!dir.isDirectory())
+		         {
+//		          System.out.println("디렉토리 없음");
+		          //디렉토리 생성
+		          dir.mkdirs();
+		         }
 		MultipartRequest mr = new MultipartRequest(request, forderPath, 1024 * 1024 * 5, "UTF-8",
 				new DefaultFileRenamePolicy());
 		String type = mr.getParameter("type");

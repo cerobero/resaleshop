@@ -25,7 +25,7 @@ public class MainServlet extends HttpServlet {
 		String viewPath=null;
 		
 		try {
-			if(type!=null||type.equals("index")){
+			if(type==null||type.equals("index")){
 			ArticlePage newProductPage=service.getNewArticlePage(request);
 			ArticlePage hotProductPage=service.getHotArticlePage(request);
 			ArticlePage premiumProductPage=service.getPremiumArticlePage(request);

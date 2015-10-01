@@ -37,7 +37,7 @@ public class writeService {
 		article.setUserId(userId);
 		article.setTitle(title);
 		article.setPrice(price);
-		article.setPhoto(file.getAbsolutePath());
+		article.setPhoto(file.getAbsolutePath().substring(file.getAbsolutePath().indexOf("upload")));
 		article.setCategoryId(categoryId);
 		article.setPremiume(premiume);
 		article.setContent(content);

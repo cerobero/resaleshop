@@ -39,7 +39,7 @@
     
     <!--  Register form -->
     <div class="container">
-	    <form class="form-horizontal" action="index.jsp" method="POST" name="submitForm">
+	    <form class="form-horizontal" action="index" method="POST" name="submitForm">
 		  <fieldset>
 		    <div id="legend">
 		      <h1 class="page-header text-center">회원가입이 완료되었습니다.</h1>

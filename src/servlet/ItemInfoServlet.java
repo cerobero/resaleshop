@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -37,6 +38,14 @@ public class ItemInfoServlet extends HttpServlet{
 	}
 
 	private void process(HttpServletRequest request, HttpServletResponse response) {
+		try
+		{
+			request.setCharacterEncoding("UTF-8");
+		}
+		catch (UnsupportedEncodingException e)
+		{
+			e.printStackTrace();
+		}
 		String type = request.getParameter("type");
 		ItemInfoService itemInfoService = ItemInfoService.getInstance();
 		writeService writeservice = new writeService();
@@ -52,6 +61,7 @@ public class ItemInfoServlet extends HttpServlet{
 					path = "category.jsp";
 				} else if(type.equals("read")){
 					ItemArticle itemArticle = itemInfoService.readItemArticle(request);
+					itemInfoService.getCommentList(request);
 					request.setAttribute("itemArticle", itemArticle);
 					path = "read.jsp";
 				} else if (type.equals("deleteForm")) {

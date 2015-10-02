@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import repository.ItemInfoDao;
+import repository.writeDao;
+import vo.Article;
 import vo.ItemArticle;
 import vo.ItemArticlePage;
 
@@ -105,5 +107,19 @@ public class ItemInfoService {
 		return result;
 	}
 	
+	public int getCommentList(HttpServletRequest request) throws ClassNotFoundException, SQLException
+	{
+		writeDao dao = writeDao.getInstance();
+		dao.startConnection();
+		
+		int result = 0;
+		String articleNoStr = request.getParameter("articleNo");
+		int articleNo = articleNoStr != null && articleNoStr.length() > 0 ? Integer.parseInt(articleNoStr) : 0;
+		List<Article> commentList = dao.selectCommentList(articleNo);
+		request.setAttribute("commentList", commentList);
+		
+		dao.closeConnection();
+		return result;
+	}
 
 }

@@ -2,6 +2,7 @@ package service;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 import java.util.Date;
 
@@ -52,6 +53,14 @@ public class writeService {
 
 	}
 	public int comment(HttpServletRequest request,HttpSession session) throws ClassNotFoundException, SQLException{
+		try
+		{
+			request.setCharacterEncoding("UTF-8");
+		}
+		catch (UnsupportedEncodingException e)
+		{
+			e.printStackTrace();
+		}
 		int result = 0;
 		String userId = (String) session.getAttribute("id");
 		int articleNo = Integer.parseInt(request.getParameter("articleNo"));

@@ -246,7 +246,7 @@ input[type=file] {
 					<a href="board?type=updateForm&articleNo=${requestScope.itemArticle.articleNo}">
 						<button class="btn btn-success">글 수정</button>
 					</a>
-					<a href="itemInfo?type=deleteForm&articleNo=${requestScope.itemArticle.articleNo}">
+					<a href="login?cmd=del&articleNo=${requestScope.itemArticle.articleNo }">
 						<button class="btn btn-success">글 삭제</button>
 					</a>
 				</c:if>
@@ -254,25 +254,35 @@ input[type=file] {
 		</div>
 
 		<div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    
+                    
+                    
+                </div>
+            </div>
+        </div>
+
+		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="page-header">
-						<h1>
-							<small class="pull-right">1개의 댓글</small>댓글
-						</h1>
-					</div>
-					<div class="comments-list">
-						<div class="media">
-							<!--                            <p class="pull-right"><small>5일 전</small></p> -->
-							<div class="media-body" contenteditable="true"
-								style="border: 1px solid gold; padding: 10px; width: 1150px; min-width: 1150px; overflow: hidden; height: 150px; overflow: auto; display: inline-block; min-height: 150px;">
-
-								<!--                               <h4 class="media-heading user_name"><b>조 건우</b></h4> -->
-								<!--                               어으썸 -->
-							</div>
-
-						</div>
-					</div>
+                  <div class="page-header">
+                    <h1><small class="pull-right">${requestScope.commentList.size() }개의 댓글</small>댓글</h1>
+                  </div> 
+                   <div class="comments-list">
+					<c:forEach var="comment" items="${requestScope.commentList }">                  
+                       <div class="media">
+                           <p class="pull-right"><small>${comment.comment_Date }</small></p>
+                            <div class="media-body">
+                                
+                              <h4 class="media-heading user_name"><b>${comment.userId }</b></h4>
+                              ${comment.content }
+                            </div>
+                          </div>
+                    </c:forEach>
+                   </div>
+                   <br>
+                   <c:if test="${not empty sessionScope.id }">
 					<form action="itemInfo" method="post">
 						<div class="comments-insert">
 							<input type="hidden" id="categoryId" name="cateogryId" value="${param.categoryId }">
@@ -292,6 +302,7 @@ input[type=file] {
 							</div>
 						</div>
 					</form>
+					</c:if>
 
 				</div>
 			</div>

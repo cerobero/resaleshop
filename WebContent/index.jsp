@@ -92,7 +92,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<h1 class="page-header">
-				Hot! 등록상품 <small><a href="list">더보기</a></small>
+				Hot! 등록상품 <small><a href="list?view=hot">더보기</a></small>
 				</h1>
 			</div>
 		</div>
@@ -142,7 +142,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<h1 class="page-header">
-					프리미엄 등록상품 <small><a href="list">더 보기</a></small>
+					프리미엄 등록상품 <small><a href="list?view=premium">더 보기</a></small>
 				</h1>
 			</div>
 		</div>

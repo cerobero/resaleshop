@@ -74,7 +74,7 @@
 		</c:if>
 		<c:if test="${requestScope.newProductPage.articleList.size() > 4 }">
 			<div class="row">
-				<c:forEach var="article" items="${requestScope.newProductPage.articleList }" begin="${requestScope.newProductPage.articleList.size() - 8}" end="${requestScope.newProductPage.articleList.size()  }">
+				<c:forEach var="article" items="${requestScope.newProductPage.articleList }" begin="0" end="${requestScope.newProductPage.articleList.size()  }">
 					<div class="col-md-3 portfolio-item">
 							<a href="itemInfo?type=read&articleNo=${article.articleNo}"> <img class="img-responsive"
 								src="${article.photo}" alt="">
@@ -115,7 +115,7 @@
 		</c:if>
 		<c:if test="${requestScope.hotProductPage.articleList.size() > 4 }">
 			<div class="row">
-				<c:forEach var="article" items="${requestScope.hotProductPage.articleList }" begin="${requestScope.hotProductPage.articleList.size() - 8}" end="${requestScope.hotProductPage.articleList.size() }">
+				<c:forEach var="article" items="${requestScope.hotProductPage.articleList }" begin="0" end="${requestScope.hotProductPage.articleList.size() }">
 					<div class="col-md-3 portfolio-item">
 							<a href="itemInfo?type=read&articleNo=${article.articleNo}"> <img class="img-responsive"
 								src="${article.photo}" alt="">
@@ -166,7 +166,7 @@
 		</c:if>
 		<c:if test="${requestScope.premiumProductPage.articleList.size() > 4 }">
 			<div class="row">
-				<c:forEach var="article" items="${requestScope.premiumProductPage.articleList }" begin="${requestScope.premiumProductPage.articleList.size() - 8}" end="${requestScope.premiumProductPage.articleList.size()  }">
+				<c:forEach var="article" items="${requestScope.premiumProductPage.articleList }" begin="0" end="${requestScope.premiumProductPage.articleList.size()  }">
 					<div class="col-md-3 portfolio-item">
 							<a href="itemInfo?type=read&articleNo=${article.articleNo}"> <img class="img-responsive"
 								src="${article.photo}" alt="">
